@@ -342,3 +342,204 @@ Roughly **1-2 weeks** for a credible v1, **yours, free, on-device, inspectable**
 - Pricing (§1.5) is **LIKELY**, from two agreeing WebSearch reads plus arithmetic corroboration. Vendor site was egress-blocked. Open `https://keyboardkit.com/pricing` in a browser before budgeting.
 - Everything about the **licence text, binary distribution, `ProFeature` enum, throwing APIs, framework size, tag dates, fork point, and OpenKeyboardKit contents** was verified directly from the Git repos and the shipped 10.8.0 XCFramework on 2026-08-18 — **CONFIRMED**.
 - **Haptics-require-Full-Access** and the **~48-60 MB jetsam ceiling** are widely-reported developer folklore Apple has never documented numerically — **LIKELY**. Validate on-device in Phase 0.
+
+---
+
+# Addendum — iOS 27 / Xcode 27 (same agent, follow-up, 2026-08-18)
+
+> **Beta caveat:** iOS 27 is at **Beta 6**. Everything below is subject to change before GM (~Sept 2026).
+
+## 1. KeyboardKit 10.x vs the iOS 27 SDK
+
+### 1.1 What the last three months shipped
+
+Full-text scan of `RELEASE_NOTES.md` @ 10.8.0 (**CONFIRMED**, local clone):
+
+| Query | Hits |
+|---|---|
+| `iOS 27` | **1** — in the 10.6 section only |
+| `Xcode` (any version) | **0** across the entire document |
+| OS-version or beta mentions in 10.7, 10.7.1-.3, 10.8 | **0** |
+
+The single iOS 27 mention, verbatim, from **10.6** (2026-06-22) — **CONFIRMED**:
+
+> *"Finally, since the host application bundle ID keeps returning `nil` in iOS 27, we have deprecated the `KeyboardInputViewController` `hostApplicationBundleId` property, and updated the documentation with alternate ways to handle this."*
+
+**10.5-10.8 shipped exactly one iOS 27-related change, and it is a capitulation, not a fix.** 10.7 and 10.8 contain **zero** iOS 27 hardening.
+
+### 1.2 The `hostApplicationBundleId` regression — the case study that matters
+
+| Date | Event |
+|---|---|
+| ~2026-02/03 | iOS **26.4 beta** starts returning `nil`; KeyboardKit issue #1014 |
+| 10.4 (2026-04-08) | "adjusts the `hostApplicationBundleId` logic to handle that this property becomes `nil` in iOS 26.4 and later" |
+| 10.6 (2026-06-22) | Feature removed; property soft-deprecated; **iOS 27 beta did not restore it** |
+| 10.6.1 (2026-07-02) | Patch restores a user-picker fallback |
+
+**~4 months from first beta report to resolution, and the resolution was "delete the feature."** It all happened in a **point release** (26.4), not a major. Impact on LinguaKey directly: none (the PRD never needs host-app identification). But it is the cleanest available proxy for *"what happens when Apple breaks something in a keyboard extension."*
+
+### 1.3 Deployment target / toolchain — unchanged
+
+`swift-tools-version` **5.9** (unchanged since 10.0); platforms **iOS 16**+; **no stated minimum Xcode anywhere** (0 "Xcode" hits in README or release notes). **CONFIRMED**
+
+### 1.4 Open issues — no iOS 27 breakage reported
+
+Ten most recently created open issues (newest #1063, 2026-08-08) contain **zero** mentions of iOS 27, Xcode 27, beta, SDK breakage, crashes, or memory. **CONFIRMED.** Read as genuinely reassuring but **weak evidence** — ~1.9k stars with 32 open issues is a small reporting population and the beta window is short.
+
+### 1.5 What the binary distribution means right before a major OS release
+
+**This is the part that should drive the decision. You cannot recompile KeyboardKit.**
+
+1. **No SDK-recompile escape hatch.** If a Swift ABI, SwiftUI, or UIKit change in the iOS 27 GM breaks the prebuilt slice, the normal remedy — rebuild the dependency against the new SDK, patch one line, ship — **does not exist.** You file an issue and wait.
+2. **Wait time is empirically ~4 months** (§1.2), from a **single-person vendor**, for a bug that was reproducible and well-understood.
+3. **You cannot even diagnose it.** No source; the LICENSE forbids reverse engineering. You get dSYMs — stack frames, not fixes.
+4. **Compounding risk window.** iOS 27 GM ships ~4 weeks from now; 10.8.0 was cut **before GM**. No public statement that any 10.x build has been validated against the iOS 27 GM SDK. **UNVERIFIED — and unverifiable from outside.**
+5. **The failure mode is worst exactly where it hurts most.** A keyboard extension that breaks is a keyboard that doesn't appear, or jetsams silently with no crash log. For a daily-driver keyboard, an unfixable multi-month outage is a product-ending event.
+
+**Conclusion: adopting a closed binary keyboard framework in the four weeks before a major iOS release is the single worst-timed version of an already-risky dependency.** This *strengthens* recommendation D (vendor OpenKeyboardKit source) — vendored source means an iOS 27 break is a debugging session, not a support ticket.
+
+## 2. OpenKeyboardKit against iOS 27 / Xcode 27
+
+### 2.1 "Stale CI" vs "does the source compile"
+
+**Different questions, and only the second matters for a vendoring plan.** CI pinning Xcode 16.4 tells you the *maintainer* hasn't validated against Xcode 26/27. It tells you **nothing** about whether the source compiles — and once vendored, **their CI is irrelevant; yours is the only CI that exists.** The stale pin is a maintenance signal, not a technical blocker.
+
+### 2.2 Does the source plausibly compile under Xcode 27? — Yes
+
+| Evidence | Finding | Status |
+|---|---|---|
+| **Manifest format** | KeyboardKit's **own** `Package.swift`, released **2026-08-17**, is still `// swift-tools-version: 5.9`. A commercially-supported package shipping *yesterday* uses the exact same tools version | **CONFIRMED — decisive by example** |
+| **SwiftPM policy** | "the previous API version will continue to be available to packages which declare a prior tools version" | CONFIRMED |
+| **Language mode** | tools-version 5.9 => Swift 5 language mode. Swift 6 strict-concurrency diagnostics are **warnings, not errors**. Xcode 27 ships Swift 6.4 | LIKELY |
+| **Extension-safety** | `UIApplication.shared`: **0 occurrences in Swift code** (all 3 hits are in `.docc` markdown explaining you can't use it). `keyWindow`: 0. `@UIApplicationMain`: 0 | **CONFIRMED** (grep, 235 files) |
+| **Deprecated-API surface** | `UIScreen.main`: **3 sites**. Soft-deprecated since iOS 16; **still present in the iOS 27 SDK** => warnings, not errors | CONFIRMED / LIKELY |
+| **Scene mandate** | Applies to **apps**, not extensions. The host app is SwiftUI `@main` => already scene-based | CONFIRMED / LIKELY (extension scope) |
+
+### 2.3 The actual risk is the pinned dependencies
+
+```swift
+.package(url: ".../EmojiKit.git",      exact: "1.7.1")
+.package(url: ".../GestureButton.git", exact: "0.5.0")
+.package(url: ".../SwiftLintPlugins",  exact: "0.65.0")
+```
+`exact:` pins from Dec 2025. **The most likely thing to fail a first build under Xcode 27** — a stale transitive dep, not OpenKeyboardKit's own 22.7k LOC.
+
+### 2.4 Realistic remediation cost
+
+| Task | Estimate |
+|---|---|
+| First build under Xcode 26/27, triage | 2-4 h |
+| Bump/vendor EmojiKit + GestureButton; drop SwiftLintPlugins | 2-4 h |
+| Replace 3 x `UIScreen.main` | 1 h |
+| Raise deployment target; delete unused locales; delete `_Pro/ProPlaceholders.swift` | 2-3 h |
+| Clear Swift 6 concurrency warnings (optional) | 0-8 h |
+| **Total** | **~1-2 days, worst case one week** |
+
+**Verdict: NOT a blocker.** UNVERIFIED that it compiles clean (no Xcode in the research environment) — **this should be the very first task of Phase 0.**
+
+## 3. Did iOS 27 give third-party keyboards anything new?
+
+### **No. Nothing.** Checked four independent ways.
+
+**3.1 WWDC26 session catalogue — 115 sessions, zero keyboard sessions.** **CONFIRMED.** No custom-keyboard session, no text-input-extension session, **no "What's new in UIKit" session at all this year.** Closest match — *"Elevate your app's text experience with TextKit"* — is about apps' own text views. It gives the *host* better text, not you better input.
+
+**3.2 Apple's "UIKit updates" page — 4 "keyboard" hits, all irrelevant.** Occurrences of `UIInputViewController`, `UITextChecker`, `UILexicon`, `UITextDocumentProxy`, `autocorrect`, `UITextInputTraits`: **0, 0, 0, 0, 0, 0.** **CONFIRMED**
+
+**3.3 iOS & iPadOS 27 Beta 6 release notes — full-text scan, 59,787 chars.** `keyboard`: 2 hits, both SwiftUI `fullScreenCover` animation bugs. `Keyboard`: 1 hit — Settings > Keyboard > Dictation > "Advanced Dictation Preview", **a system feature for Apple's own keyboard. No API. Not available to extensions.** **CONFIRMED**
+
+**3.4 Symbol-level diff via Apple's documentation index** — every symbol's `introducedAt` checked programmatically. **CONFIRMED:**
+
+| Type | Symbols introduced in iOS 26 or 27 |
+|---|---|
+| `UIInputViewController` | **NONE** |
+| `UITextDocumentProxy` | **NONE** |
+| `UITextChecker` | **NONE** |
+| `UILexicon` | **NONE** |
+| `UITextInputTraits` | **NONE** |
+
+`UIInputViewController`'s complete member list is **unchanged since iOS 8**.
+
+**3.5 Against the checklist**
+
+| Asked | Answer |
+|---|---|
+| New **emoji** access for extensions? | **No.** You still ship your own emoji grid |
+| New **dictation** access? | **No.** iOS 27's "Advanced Dictation Preview" is a Settings toggle for Apple's keyboard |
+| New **autocorrect/prediction API**? | **No.** `UITextChecker`/`UILexicon` byte-for-byte unchanged. QuickType, Apple's touch model, inline prediction remain private |
+| **Memory ceiling** change? | **No documented change.** No number published, then or now |
+| New **`UITextDocumentProxy`** capability? | **No.** Zero new symbols |
+| **Apple Intelligence** surface opened to keyboards? | **No new one in iOS 27** — but one was already opened in **iOS 26**. See 3.6 |
+
+### 3.6 The thing that *did* change — and it landed in iOS 26, not 27
+
+**`FoundationModels.framework` is usable from inside a keyboard extension.** Primary evidence from the downloaded binary:
+
+```
+$ strings KeyboardKit.xcframework/ios-arm64/KeyboardKit.framework/KeyboardKit | grep Frameworks
+/System/Library/Frameworks/FoundationModels.framework/FoundationModels   <- linked
+$ head -12 .../arm64-apple-ios.swiftinterface
+import FoundationModels
+```
+
+**CONFIRMED** — KeyboardKit 10.8.0's shipped Mach-O links `FoundationModels`, and its public `.swiftinterface` imports it. *A framework does not link into a keyboard-extension-targeted binary that cannot run there.* This independently corroborates Research 03.
+
+From **10.3** release notes (2026-02-12) — **CONFIRMED, verbatim**:
+> *"This version adds support for on-device next word prediction, using Apple's Foundation Models. This is available on supported platforms (from iPhone 15 Pro & iOS 26.1)."*
+> *"Note that this is a very(!) new technology that is noticably slower and less accurate than other autocomplete features."*
+
+And the shipped enum — **CONFIRMED** (`.swiftinterface` line 7061):
+```swift
+public enum AutocompleteMethod : String, CaseIterable { case local; case claude; case openAI }
+```
+`.local` is the Foundation Models path and is the **default** since 10.3.
+
+**Does this change the recommendation? Yes — it pushes *harder toward D*, not toward C.** Foundation Models is a **free system framework**. KeyboardKit's `.local` next-word prediction is a thin wrapper around it sitting behind `ProFeature.autocomplete` — i.e. **you would be paying ~$1,500/yr for a wrapper around an API Apple gives you for free.**
+
+**Caveats before anyone gets excited (all must be measured, not assumed):**
+- **Device floor: iPhone 15 Pro + Apple Intelligence enabled.** Not universal. LIKELY
+- **Session init 200-500 ms**, and creating a session "involves loading the model's weights into the Neural Engine's memory and allocating a buffer for the context window." LIKELY. Against a ~50 MB extension ceiling this needs direct measurement before it is load-bearing
+- **The only vendor who has shipped it in a keyboard says it is "noticably slower and less accurate"** than conventional autocomplete. **CONFIRMED.** A strong signal it is **not** ready to be your P0 typing engine
+
+**Recommendation: treat Foundation Models as a translation/teaching engine (§11/§15), never as the P0 autocorrect engine.** Keep SymSpell + `UITextChecker` as the typing-quality foundation. Nothing about iOS 27 justifies buying KeyboardKit.
+
+## 4. Deployment-target recommendation
+
+| Fact | Status |
+|---|---|
+| Xcode 27 ships **Swift 6.4** + iOS 27 SDKs | LIKELY |
+| Xcode 27 is **Apple-silicon only** | LIKELY |
+| **App Store submission floor is still the iOS 26 SDK / Xcode 26**, in effect since **2026-04-28**; **no announced deadline** forcing the iOS 27 SDK | LIKELY |
+| Building against the **iOS 27 SDK** makes the scene-based life cycle mandatory for **apps** — non-migrated apps fail to launch | CONFIRMED |
+| SwiftUI `@main struct App` is already scene-based => mandate is a non-event here | LIKELY |
+
+> **Recommendation: build with the iOS 26 SDK (Xcode 26) through Phase 0-1. Do not adopt the iOS 27 SDK until ~iOS 27.1.**
+
+1. **Nothing in iOS 27 is worth chasing** (§3). Pure risk, zero reward for this product.
+2. **No deadline exists.** Submission floor is iOS 26 SDK; LinguaKey is personal-first and sideloaded.
+3. **The iOS 27 SDK adds the scene-lifecycle mandate** — low risk given SwiftUI, but a needless variable during Phase 0.
+4. **If you take KeyboardKit you have no choice anyway** — its binary predates the iOS 27 GM SDK and you cannot rebuild it.
+5. **Ship, then upgrade.** Move to Xcode 27 as a deliberate, isolated task once 27.1 ships.
+
+On the *deployment target* (as distinct from the SDK), this agent initially favoured keeping iOS 18 but lists strong arguments for raising to **iOS 26**: one visual target (Liquid Glass only — you stop maintaining pre-26 and 26+ appearance variants, which KeyboardKit does maintain); unconditional `FoundationModels` availability; and *"this is a personal-use-first app on your own iPhone — you control the device, backward compatibility buys you nothing today."*
+
+Do **not** put `.iOS(.v15)` (OpenKeyboardKit's declared floor) into the vendored package — raise it on day one so you delete availability shims rather than inherit them.
+
+## 5. Net effect on the recommendation
+
+**Unchanged in direction; strengthened in confidence.**
+
+| Input | Effect on D (vendor OpenKeyboardKit) |
+|---|---|
+| iOS 27 exposes no new keyboard API | Neutral — nothing to gain from waiting or from buying |
+| KeyboardKit is a binary you cannot rebuild, 4 weeks before a major OS release, with a 4-month precedent for Apple-side-break turnaround | **Strongly favours D** |
+| OpenKeyboardKit's stale CI is a signal, not a blocker; ~1-2 days remediation | **Removes the main objection to D** |
+| Foundation Models is a free system framework already reachable from extensions; KeyboardKit charges for a wrapper around it | **Favours D** |
+| No iOS 27 issues reported against KeyboardKit | Mildly favours C, from a small reporting population |
+
+**Verdict: proceed with D.** Add one gate to Phase 0: **before writing product code, clone OpenKeyboardKit, vendor it, and get it building under Xcode 26.** If that fails badly (>1 week), that — not iOS 27 — is the signal to reconsider.
+
+### Verification gaps in this addendum
+
+- **Cannot compile anything** (no macOS/Xcode in the research environment). §2.2 is inference from manifest formats, grep, and SwiftPM policy — **UNVERIFIED by build.** The single most important thing to test first.
+- Egress-blocked: `ikyle.me`, `mjtsai.com`, `swiftjectivec.com`, `docs.swift.org`, `keyboardkit.com`, `dev.to`, `archive.org`. Apple-sourced iOS 27 findings (§3.2-3.4) came from `developer.apple.com`'s docs JSON API and **are CONFIRMED**; Xcode 27 / Swift 6.4 / App Store floor details rest on search summaries and are **LIKELY**.
+- **iOS 27 Beta 6 != GM.** A keyboard-relevant change could still land in Beta 7+ or 27.1. **The `hostApplicationBundleId` case proves Apple changes keyboard-extension behavior in *point* releases with no release-note announcement** — so "nothing in the iOS 27 notes" is not a guarantee of "nothing will break." Re-check at GM.
