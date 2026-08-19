@@ -48,7 +48,9 @@ golden_check() {
   fi
 }
 golden_check fsrs-golden.json golden.py      "The memory model"
-golden_check arms-golden.json golden_arms.py "Arm assignment"
+golden_check arms-golden.json golden_arms.py  "Arm assignment"
+golden_check store-golden.json golden_store.py "The event log or the fold"
+golden_check store-events.jsonl golden_store.py "The event log format"
 
 printf '\n'
 if [[ $fail -ne 0 ]]; then

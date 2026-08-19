@@ -110,6 +110,48 @@ else:
     check("ArmAssignment.swift exists", False, str(arm_file))
 
 
+# --------------------------------------------------------- the wire format
+
+# The Python reference writes the log and the Swift reads it. If a Channel raw
+# value or a Grade number differs by one character the golden vectors catch it,
+# but only for the channels the vectors happen to use. This catches all of them.
+fsrs_swift = (ROOT / "LinguaKeyCore/Sources/LinguaKeyCore/Memory/FSRS.swift")
+fsrs_python = (ROOT / "tools/engine/fsrs.py")
+if fsrs_swift.exists() and fsrs_python.exists():
+    swift_text = fsrs_swift.read_text(encoding="utf-8")
+    python_text = fsrs_python.read_text(encoding="utf-8")
+
+    swift_channels = set(re.findall(r'case\s+\w+\s*=\s*"([A-Z_]+)"', swift_text))
+    python_channels = set(re.findall(r"^\s{4}([A-Z_]+)\s*=\s*", python_text, re.M))
+    # Only the ones that are actually Channel members on the Python side.
+    channel_block = re.search(r"class Channel\b.*?(?=\nclass |\n@|\ndef )",
+                              python_text, re.S)
+    if channel_block:
+        python_channels = set(re.findall(r"^\s{4}([A-Z_]+)\s*=",
+                                         channel_block.group(0), re.M))
+    check("Channel raw values match between the Swift and the reference",
+          swift_channels == python_channels,
+          f"swift only: {sorted(swift_channels - python_channels)}, "
+          f"python only: {sorted(python_channels - swift_channels)}")
+
+    # The Swift declares all four on one `case` line, so match the whole enum
+    # body rather than one case at a time.
+    grade_body = re.search(r"public enum Grade[^{]*\{(.*?)\}", swift_text, re.S)
+    swift_grades = dict(re.findall(r"(again|hard|good|easy)\s*=\s*(\d)",
+                                   grade_body.group(1) if grade_body else ""))
+    python_grades = dict(re.findall(r"^\s{4}(AGAIN|HARD|GOOD|EASY)\s*=\s*(\d)",
+                                    python_text, re.M))
+    check("Grade numbers match the reference",
+          swift_grades == {k.lower(): v for k, v in python_grades.items()}
+          and len(swift_grades) == 4,
+          f"swift {swift_grades}, python {python_grades}")
+
+    check("Arm raw values are the single letters the reference writes",
+          set(re.findall(r'case\s+\w+\s*=\s*"([ABC])"',
+                         (ROOT / "LinguaKeyApp/Sources/StudyKit/Event.swift")
+                         .read_text(encoding="utf-8"))) == {"A", "B", "C"})
+
+
 # --------------------------------------------------------- one App Group identifier
 
 # The app and the extension are two processes sharing one container. A single
@@ -162,10 +204,23 @@ else:
 
 # --------------------------------------------------------- golden vectors are readable
 
-for name in ("fsrs-golden.json", "arms-golden.json"):
+for name in ("fsrs-golden.json", "arms-golden.json", "store-golden.json"):
     path = ROOT / "build" / "golden" / name
     check(f"{name} is present and parses",
           path.exists() and isinstance(json.loads(path.read_text()), dict))
+
+# The event log vectors are deliberately not all valid JSON: three of the lines
+# are the corruption the reader has to survive. What must hold is that the rest
+# parse and that the file ends mid-record.
+events = ROOT / "build" / "golden" / "store-events.jsonl"
+if events.exists():
+    lines = events.read_text(encoding="utf-8").split("\n")
+    good = sum(1 for l in lines if l and l.startswith("{") and l.endswith("}"))
+    check("store-events.jsonl carries a readable body", good > 20, f"{good} lines")
+    check("store-events.jsonl ends with a torn line, which is the point",
+          not events.read_text(encoding="utf-8").endswith("\n"))
+else:
+    check("store-events.jsonl is present", False)
 
 
 print()

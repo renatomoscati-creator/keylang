@@ -1,0 +1,202 @@
+{
+ "_comment": "The Swift must read store-events.jsonl through the real EventLog, fold it through the real ItemStore, and reproduce this. Regenerate with tools/engine/golden_store.py.",
+ "tolerance": 1e-09,
+ "now": 3888000.0,
+ "event_count": 45,
+ "skipped_lines": 3,
+ "complete_byte_count": 8746,
+ "items": {
+  "CELL:V|IND,FUT,1,SG": {
+   "recognition": {
+    "stability": 8.450041823398463,
+    "difficulty": 2.4774999999999996,
+    "reps": 0,
+    "lapses": 0,
+    "exposures": 1,
+    "effective_reps": 0.6,
+    "last_graded_failed": false,
+    "retrievability": 0.7787754027824529
+   },
+   "production": {
+    "stability": 2.3065,
+    "difficulty": 2.118103970459015,
+    "reps": 1,
+    "lapses": 0,
+    "exposures": 0,
+    "effective_reps": 1.0,
+    "last_graded_failed": false,
+    "retrievability": 0.6528968385708873
+   },
+   "mastery": 0.6969543360449353,
+   "suppress": false
+  },
+  "LEM:agua|N|0": {
+   "recognition": {
+    "stability": 68.90740869444502,
+    "difficulty": 1.9449999999999994,
+    "reps": 0,
+    "lapses": 0,
+    "exposures": 1,
+    "effective_reps": 2.6,
+    "last_graded_failed": false,
+    "retrievability": 0.9894594921674212
+   },
+   "production": {
+    "stability": 265.54799872256734,
+    "difficulty": 1.0,
+    "reps": 5,
+    "lapses": 0,
+    "exposures": 0,
+    "effective_reps": 5.0,
+    "last_graded_failed": false,
+    "retrievability": 0.9971835578874114
+   },
+   "mastery": 0.9944801348854149,
+   "suppress": true
+  },
+  "LEM:copiado|N|0": {
+   "recognition": {
+    "stability": 0.49843069223495234,
+    "difficulty": 4.965,
+    "reps": 0,
+    "lapses": 0,
+    "exposures": 1,
+    "effective_reps": 0.03,
+    "last_graded_failed": false,
+    "retrievability": 0.5110817478648766
+   },
+   "production": {
+    "stability": 0.49843069223495234,
+    "difficulty": 4.965,
+    "reps": 0,
+    "lapses": 0,
+    "exposures": 0,
+    "effective_reps": 0.0,
+    "last_graded_failed": false,
+    "retrievability": 0.5110817478648766
+   },
+   "mastery": 0.5110817478648766,
+   "suppress": false
+  },
+  "LEM:desconocido|N|0": {
+   "recognition": {
+    "stability": 0.4,
+    "difficulty": 5.45,
+    "reps": 0,
+    "lapses": 0,
+    "exposures": 1,
+    "effective_reps": 0.1,
+    "last_graded_failed": false,
+    "retrievability": 0.4923224255829389
+   },
+   "production": {
+    "stability": 0.4,
+    "difficulty": 5.45,
+    "reps": 0,
+    "lapses": 0,
+    "exposures": 0,
+    "effective_reps": 0.0,
+    "last_graded_failed": false,
+    "retrievability": 0.4923224255829389
+   },
+   "mastery": 0.4923224255829389,
+   "suppress": false
+  },
+  "LEM:pan|N|0": {
+   "recognition": {
+    "stability": 6.862857263324593,
+    "difficulty": 3.8799999999999994,
+    "reps": 0,
+    "lapses": 0,
+    "exposures": 2,
+    "effective_reps": 0.83,
+    "last_graded_failed": false,
+    "retrievability": 0.7558520749702862
+   },
+   "production": {
+    "stability": 8.2956,
+    "difficulty": 1.0,
+    "reps": 1,
+    "lapses": 0,
+    "exposures": 0,
+    "effective_reps": 1.0,
+    "last_graded_failed": false,
+    "retrievability": 0.7742760669632925
+   },
+   "mastery": 0.7678276697657402,
+   "suppress": false
+  },
+  "LEM:pronto|ADV|0": {
+   "recognition": {
+    "stability": 35.69531534619107,
+    "difficulty": 3.6350000000000002,
+    "reps": 0,
+    "lapses": 0,
+    "exposures": 1,
+    "effective_reps": 2.1,
+    "last_graded_failed": false,
+    "retrievability": 0.9347203898445255
+   },
+   "production": {
+    "stability": 4.333100169800591,
+    "difficulty": 7.0327612,
+    "reps": 5,
+    "lapses": 1,
+    "exposures": 0,
+    "effective_reps": 5.0,
+    "last_graded_failed": true,
+    "retrievability": 0.8638368050365758
+   },
+   "mastery": 0.8886460597193582,
+   "suppress": false
+  },
+  "LEM:salir|V|0": {
+   "recognition": {
+    "stability": 5.462720796109007,
+    "difficulty": 2.6500000000000004,
+    "reps": 0,
+    "lapses": 0,
+    "exposures": 20,
+    "effective_reps": 0.6000000000000003,
+    "last_graded_failed": false,
+    "retrievability": 0.8820807196028656
+   },
+   "production": {
+    "stability": 0.8639065015139661,
+    "difficulty": 2.6500000000000004,
+    "reps": 0,
+    "lapses": 0,
+    "exposures": 0,
+    "effective_reps": 0.0,
+    "last_graded_failed": false,
+    "retrievability": 0.5436361380356273
+   },
+   "mastery": 0.6620917415841607,
+   "suppress": false
+  },
+  "LEM:vaso|N|0": {
+   "recognition": {
+    "stability": 7.934263763245587,
+    "difficulty": 3.93,
+    "reps": 0,
+    "lapses": 0,
+    "exposures": 2,
+    "effective_reps": 1.13,
+    "last_graded_failed": false,
+    "retrievability": 0.7573332063363293
+   },
+   "production": {
+    "stability": 0.6368506992409604,
+    "difficulty": 8.265180980907969,
+    "reps": 3,
+    "lapses": 1,
+    "exposures": 0,
+    "effective_reps": 3.0,
+    "last_graded_failed": false,
+    "retrievability": 0.5264765300795918
+   },
+   "mastery": 0.6072763667694498,
+   "suppress": false
+  }
+ }
+}
