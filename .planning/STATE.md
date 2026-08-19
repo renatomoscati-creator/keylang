@@ -63,3 +63,33 @@ before phase 01 CONTEXT can lock.
   distribution route is a superset of the paid membership rather than an alternative to it.
   Correction notice appended to research 04 rather than rewriting it, so the original reasoning
   stays auditable. STRESS-TEST.md B1 and decision D1 revised.
+- 2026-08-19 iPhone 13 verification landed and RESOLVES the open question from the constraint
+  entry above. Foundation Models is permanently unavailable and **Private Cloud Compute does not
+  rescue it**: Apple states in three places that PCC is only available on devices that support
+  Apple Intelligence, so the server model is gated on the client being eligible hardware. That is
+  a closed door on every iOS version. Translation survives fully and is now CONFIRMED rather than
+  hoped: Apple's own API reference says `.lowLatency` "is the default strategy for devices without
+  Apple Intelligence", headless `TranslationSession(installedSource:target:)` is iOS 26.0 with no
+  eligibility precondition, and downloaded packs are a system-wide store shared with all apps, so
+  the host app downloads and the keyboard consumes. Apple documents the quality gap versus
+  `.highFidelity` only as "not as fluent" and publishes no number for any pair, so a manual eval
+  over 100 sentences the author actually sent is the only quality figure this project will ever
+  have. Decision taken on the evidence: **the V1 teaching layer is bundled deterministic data
+  authored at build time by a frontier model on a Mac**, not a runtime model. Three of the five
+  teaching capabilities are better for it, and it is less work, because it deletes the prompt
+  contract, schema validation, latency budget, rate-limit handling and streaming UI. A remote
+  escalation rung moves to V1.1, explicit-tap only. Core ML in the host app is rejected outright
+  because the host app is not running when the user types in another app and there is no supported
+  way to wake it. Memory budget lowered from 40/30 to **25 design / 20 alarm / 35 hard**, because
+  4 GB sits at the bottom of the supported RAM class and jetsam there also fires on system-wide
+  pressure. Also corrected: the frame budget is 16.7 ms not 8.3 ms (60 Hz), GPU rather than CPU is
+  the A15 concern, `os_proc_available_memory()` may return 0 in an extension so instrument with
+  `task_vm_info.phys_footprint` instead, and peninsular Spanish turns out to be the only Spanish
+  variety Apple Translate offers before iOS 27, so decision D6 is currently made by the platform
+  rather than by us. iOS 26 and iOS 27 both run on this device and iOS 27 drops nothing, so the
+  iOS 26.0 / Xcode 26 floor holds unchanged. One new high-impact UNVERIFIED: iOS 27's Neural
+  Engine background restriction carries an entitlement sentence that is unqualified by device
+  class, and Apple's translation models plausibly use the ANE, so on-device translation from
+  inside the keyboard could be throttled on iOS 27 even though none of it is Apple Intelligence.
+  PROJECT.md constraints, why-now and scope updated; ROADMAP phases 01 and 05 rewritten;
+  STRESS-TEST section 2 revised with a preamble rather than a rewrite.

@@ -76,6 +76,34 @@ Verified by cloning the repo and unzipping the shipped 10.8.0 XCFramework, not b
 
 ## 2. The architecture is backwards — this is the biggest finding
 
+> **REVISED 2026-08-19 for the iPhone 13 target.** This section was written assuming an
+> Apple-Intelligence-capable device. **The iPhone 13 is not one, and cannot become one.**
+> Foundation Models returns `.unavailable(.deviceNotEligible)` permanently, and **PCC does not
+> rescue it** — Apple states in three places that PCC is only available on devices that support
+> Apple Intelligence, so the server model is gated on the *client* being eligible hardware.
+>
+> **The translation half of the inversion survives intact and confirmed.** Apple's API reference
+> states `.lowLatency` "is the default strategy for devices without Apple Intelligence"; headless
+> `TranslationSession(installedSource:target:)` is iOS 26.0 with no eligibility precondition; and
+> downloaded packs are a **system-wide store shared with all apps**, so the host app downloads
+> and the keyboard consumes. Apple documents the quality gap only as "not as fluent" and
+> **publishes no number for any language pair.**
+>
+> **The teaching half becomes bundled deterministic data authored at build time by a frontier
+> model on a Mac** — which is *better* for three of the five capabilities (focus selection and
+> recall generation because reproducibility is what makes the evaluation criteria answerable;
+> grammar explanation because a curated deck beats a small model at one-line A1-B1 explanations),
+> and *less work*, because it deletes the prompt contract, schema validation, latency budget,
+> rate-limit handling and streaming UI that §5 of this document priced as the expensive parts.
+>
+> **The memory budget drops to 25 MB design / 20 MB alarm / 35 MB hard** — a 4 GB device sits at
+> the bottom of the supported RAM class, and jetsam there also fires on system-wide pressure, so
+> the keyboard can die well below its own limit because the host app grew.
+>
+> Full detail and the revised architecture diagram: [research 10](research/10-iphone-13-constraints.md).
+> The table below is retained as written because it remains correct for any A17 Pro or later
+> device, and because it documents what was lost.
+
 PRD §8 lists high-quality EN→ES and IT→ES translation, grammar-aware correction, explanation, phrasing, focus selection and recall generation as **Remote operations**, with Apple frameworks as an optional "may later be used."
 
 **Reverse it. In 2026 that list has a credible on-device implementation, and the remote path is the fallback.**
@@ -256,3 +284,4 @@ Worth stating, because the rewrite should not throw these away:
 | 07 | [Adversarial red team](research/07-prd-red-team.md) | 75 findings; the kill-shot is that nobody wants to insert Spanish into a message to an English speaker |
 | 08 | [iOS 27 SDK floor & behaviour gaps](research/08-ios27-sdk-and-behaviour-gaps.md) | iOS 26 SDK floor CONFIRMED with no iOS 27 deadline; the App Store accepts nothing built with the 27.0 SDK today; host-app identity is permanently `nil` |
 | 09 | [Free-tier personal-device paths](research/09-free-tier-personal-device-paths.md) | **Corrects 04**: App Groups and Keychain Sharing are free-tier capabilities. The real blocker is the 7-day profile, which no sideloader and no EU route can extend |
+| 10 | [iPhone 13 constraints](research/10-iphone-13-constraints.md) | **Revises §2**: Foundation Models and PCC are permanently unavailable on the target device. Translation survives fully. The teaching layer becomes bundled data authored at build time, which is better and cheaper |
