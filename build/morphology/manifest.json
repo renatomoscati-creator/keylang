@@ -1,0 +1,75 @@
+{
+  "format": "keylang-morphology",
+  "version": 1,
+  "magic": "KLMO",
+  "counts": {
+    "surfaces": 130175,
+    "lemmas": 4645,
+    "featsets": 162,
+    "entries": 175764,
+    "ambiguous_surfaces": 34599
+  },
+  "build": {
+    "top_lemmas": 5000,
+    "unimorph_triples_total": 1196245,
+    "unimorph_triples_kept": 166431,
+    "unimorph_verb_rows_capped_at_2^20": true,
+    "usage_triples_kept": 72287
+  },
+  "coverage": {
+    "top_100": {
+      "lemmas": 100,
+      "absent_from_unimorph": 45,
+      "percent": 45.0
+    },
+    "top_500": {
+      "lemmas": 500,
+      "absent_from_unimorph": 115,
+      "percent": 23.0
+    },
+    "top_1000": {
+      "lemmas": 1000,
+      "absent_from_unimorph": 166,
+      "percent": 16.6
+    },
+    "top_3000": {
+      "lemmas": 3000,
+      "absent_from_unimorph": 460,
+      "percent": 15.3
+    },
+    "top_5000": {
+      "lemmas": 5000,
+      "absent_from_unimorph": 919,
+      "percent": 18.4
+    }
+  },
+  "bytes": {
+    "entries.bin": 1406112,
+    "zipf.bin": 18580,
+    "featsets.blob": 3247,
+    "lemmas.blob": 34083,
+    "surfaces.blob": 1321275,
+    "entries.idx": 520704,
+    "featsets.idx": 652,
+    "lemmas.idx": 18584,
+    "surfaces.idx": 520704
+  },
+  "bytes_total": 3843941,
+  "sources": [
+    {
+      "name": "unimorph/spa",
+      "licence": "CC BY-SA 3.0"
+    },
+    {
+      "name": "doozan/spanish_data frequency.csv",
+      "licence": "CC BY-SA 3.0"
+    }
+  ],
+  "notes": [
+    "Surfaces are NFC-normalised and lowercased. Accents are preserved: esta/esta, papa/papa, si/si and el/el are distinct words.",
+    "mmap these read-only. Do not decode into a dictionary at runtime.",
+    "Ambiguity is real and represented: a surface may carry several readings. An ambiguous resolution must never write a graded learning event, only a low-weight exposure.",
+    "Readings carry a source byte. 0 = UniMorph, with full morphological features. 1 = the frequency list's usage column, lemma and POS only, which exists because UniMorph omits 45 percent of the top 100 lemmas including tener and venir. A source-1 reading must not drive a paradigm-cell item, only a lemma item.",
+    "Ambiguity coverage is incomplete and the gap is one-directional. The frequency list pre-disambiguates: 0 of its 159097 surfaces map to more than one lemma. So where it assigned a surface to one lemma and UniMorph does not cover the other, the second reading is lost. `vino` resolves to the noun (wine) and not to the preterite of `venir` (came). A surface resolving to exactly one lemma is therefore NOT proof that only one reading exists. Break ties with NLTagger's context-sensitive tag, or with the translator-alignment check: translate the focus word alone and see whether it appears in the sentence translation."
+  ]
+}

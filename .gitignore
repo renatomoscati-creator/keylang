@@ -1,0 +1,10 @@
+# Downloaded sources for the data pipeline. Never committed; fetch.sh gets them.
+build/sources/
+
+# macOS
+.DS_Store
+
+# Xcode
+xcuserdata/
+*.xcuserstate
+DerivedData/
