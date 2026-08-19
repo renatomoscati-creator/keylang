@@ -351,3 +351,32 @@ The stale `master` branch still carries the old MIT statement in its README whil
 10. **[MODERATE] The <1.5 s target has no slack from Europe.** ~0.7-1.4 s realistic. Any cold-start-prone platform blows it.
 
 11. **[MODERATE] Anthropic App Attest — the no-proxy, no-key path — requires OS 27 betas and is beta-status** (CONFIRMED). Whether it works from a keyboard extension is UNVERIFIED. -> Don't architect around it yet; keep the proxy interface provider-agnostic.
+
+---
+
+# CORRECTION NOTICE — added 2026-08-19
+
+**Sections 1.3 and 1.4 of this report are wrong.** See [research 09](09-free-tier-personal-device-paths.md) §0 for the full evidence.
+
+- **§1.3 "Does a free personal team support App Groups? — NO"** is **incorrect**. Apple's own
+  capability matrix at
+  https://developer.apple.com/help/account/reference/supported-capabilities-ios/ lists **App
+  groups: yes** in the free "Apple Developer" column (a column Apple defines as "No cost is
+  associated with this agreement"). Corroborated at source level: AltStore's production signing
+  path creates App Group identifiers through Apple's portal API with no paid-team gate, and
+  AltStore itself ships an app plus an app extension sharing an App Group, installed by millions
+  of users on free Apple IDs.
+- **§1.4 "Keychain access groups — NO"** is **incorrect** for the same reason; the matrix lists
+  **Keychain sharing: yes** for the free tier.
+- **What this report got right:** the Apple DTS quote is accurate. The error was in **over-reading
+  it** — it says the portal must mint the group, not that the portal refuses free teams.
+- **What is actually gated is Xcode's automatic-signing UI, not the entitlement** (LIKELY, not
+  confirmed). The forum errors cited in §1.4 are Xcode behaviour, not a portal refusal. Note the
+  known hard-blocked Xcode string is capability-specific and names **Push Notifications**, which
+  the matrix does mark unavailable for free.
+- **The conclusion that the paid membership is effectively mandatory survives, for a different
+  reason**: the **7-day provisioning-profile expiry**, re-confirmed on Apple's own pages
+  2026-08-19. That is the real blocker, no sideloader can extend it, and its failure mode on a
+  daily-driver keyboard is a silent mid-sentence death requiring a laptop to recover.
+- **Blocking-risks list**: items 1 and 2 should be struck and replaced by a single item, "7-day
+  provisioning profiles make the free tier unusable as a daily driver." Item 3 stands as written.
