@@ -96,19 +96,41 @@ not guaranteed.
 - The `TeachingEngine` protocol (Phase 05).
 - Buying the Apple Developer Program membership, unless the developer wants to.
 
-## Open gray areas
+## Gray areas: resolved 2026-08-19
 
-Three facts about the developer's own setup change the exact steps and are not yet known. The
-planner should write the plan parameterised on them and the executor should fill them in before
-starting:
+- **G1 — Mac: MacBook Pro, M4 Pro (Apple silicon).** Xcode 27 is available; the eventual iOS 27
+  SDK move is not a hardware purchase.
+- **G2 — iPhone 13 is on an iOS 27 beta.** Two consequences, one of which overrides D6.
+- **G3 — Free personal team.** Consistent with D7. Adds one probe: whether Xcode's Signing and
+  Capabilities pane will add an App Group for a Personal Team is LIKELY, not confirmed
+  (research 09 §0), so Task 3 finds out. A refusal is a finding, not a blocker; the harness falls
+  back to the extension's own container and records `container.kind = local`.
 
-- **G1 — Which Mac, Intel or Apple silicon?** Xcode 26 is universal so either works today.
-  Xcode 27 is Apple-silicon-only and needs macOS 26.4+, so on an Intel Mac the eventual iOS 27
-  SDK move is a hardware purchase rather than an update. Does not block Phase 01; does change
-  what "later, take the 27 SDK" costs.
-- **G2 — Which iOS is on the iPhone 13 right now, 26.x or a 27 beta?** Decides whether the
-  optional D6 ANE probe can run at all, and whether P1's result generalises to the shipping OS
-  or to a beta.
-- **G3 — Free provisioning, or is the membership already bought?** Decides whether the probe
-  harness is installed from Xcode directly (7-day, fine for this phase) or through a sideloader,
-  and therefore whether the `Info.plist` App Group indirection in D7 is needed.
+### D6 AMENDED by G2 — build with Xcode 27 beta, not Xcode 26
+
+D6 preferred Xcode 26 because research 08 confirmed the App Store accepts no iOS 27-SDK build.
+**That constraint does not bind this project**: free tier, personal device, never submitted. And
+Xcode cannot install or debug onto a device running an OS newer than its SDK, so **Xcode 26
+cannot deploy to a phone on an iOS 27 beta at all.**
+
+- Toolchain: **Xcode 27 beta** (needs macOS 26.4+, Apple silicon; the M4 Pro qualifies)
+- Deployment target: **iOS 26.0, unchanged.** Nothing needs 27, and it keeps the option open.
+- Revisit if the project ever heads for the App Store, at which point the SDK floor applies again.
+
+### D6's optional ANE probe is now MANDATORY
+
+D6 made the iOS 27 Neural Engine probe conditional on a spare device, and said not to put the
+primary phone on an iOS 27 beta to find out. **The phone is already there.**
+
+iOS 27 restricts background Neural Engine access behind a new entitlement, and the sentence
+introducing it is **not qualified by device class**, while the surrounding paragraph is scoped to
+Apple Intelligence devices. Apple's `.lowLatency` translation models plausibly use the ANE. So P1
+is now being run on the riskiest OS rather than the safest, which is better to know early but
+changes how a failure must be read:
+
+**If P1 fails, or if translation from the keyboard is markedly slower than the same call from the
+host app in the foreground, suspect the ANE background restriction before concluding that
+`TranslationSession` is extension-hostile.** The diagnostic is the comparison: run the identical
+translation from `ProbeApp` in the foreground and from `ProbeKeyboard`, and log both. Only a
+foreground-succeeds / keyboard-fails split points at the background restriction; a both-fail
+result points at the extension sandbox.

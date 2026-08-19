@@ -16,8 +16,14 @@ expected observations** rather than shell assertions, and each one names what a 
 
 ## Project-wide constraints (apply to every task)
 
-- **Xcode 26, deployment target iOS 26.0.** Do not install Xcode 27. Do not raise the target to
-  26.4 for `preferredStrategy` (D6, and research 10 §2.2: it is a no-op on this device).
+- **Xcode 27 beta, deployment target iOS 26.0.** Amended from Xcode 26 once G2 resolved: the
+  phone is on an iOS 27 beta and Xcode 26 cannot deploy to it. The App Store SDK floor that
+  favoured Xcode 26 does not bind a free-tier personal device that is never submitted. Do not
+  raise the deployment target to 26.4 for `preferredStrategy` (research 10 §2.2: it is a no-op
+  on this device).
+- **Run every translation probe twice, once from `ProbeApp` in the foreground and once from
+  `ProbeKeyboard`,** and log both. On iOS 27 that comparison is the only way to tell the ANE
+  background restriction apart from an extension-sandbox refusal.
 - **Physical iPhone 13 only.** A Simulator result is not a result (D3).
 - **Throwaway code** (D1). No abstractions, no protocols, no dependency injection, no tests
   beyond Task 8's self-check. Ugly is correct here.

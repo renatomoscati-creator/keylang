@@ -94,3 +94,21 @@ All ten research passes are complete and every prerequisite question has landed.
   inside the keyboard could be throttled on iOS 27 even though none of it is Apple Intelligence.
   PROJECT.md constraints, why-now and scope updated; ROADMAP phases 01 and 05 rewritten;
   STRESS-TEST section 2 revised with a preamble rather than a rewrite.
+- 2026-08-19 phase 01 gray areas RESOLVED with the user, and one of them amends a locked decision.
+  G1 MacBook Pro M4 Pro (Apple silicon). G2 the iPhone 13 is already on an **iOS 27 beta**. G3 free
+  personal team. G2 overrides D6: Xcode cannot deploy to a device running an OS newer than its SDK,
+  so Xcode 26 cannot install onto this phone at all, and the App Store SDK floor that made Xcode 26
+  attractive does not bind a free-tier personal device that is never submitted. Toolchain is now
+  **Xcode 27 beta**, deployment target unchanged at iOS 26.0. G2 also promotes D6's optional Neural
+  Engine probe to mandatory: iOS 27 restricts background ANE access behind a new entitlement whose
+  introducing sentence is not qualified by device class, and Apple's `.lowLatency` translation
+  models plausibly use the ANE, so P1 is now being run on the riskiest OS rather than the safest.
+  Every translation probe therefore runs twice, once from the host app in the foreground and once
+  from the keyboard, because only a foreground-succeeds / keyboard-fails split distinguishes the
+  background restriction from an extension-sandbox refusal. Probe harness written and committed
+  under `Probe/`: shared append-only logger flushed per line so results survive the deliberate
+  jetsam kill, `task_vm_info` instrumentation with `os_proc_available_memory` probed rather than
+  trusted, host app for language-pack download via `.translationTask`, keyboard extension carrying
+  all seven probes, and a self-check that names any probe which never ran (verified against a
+  partial log: 3 found, 19 named missing). Phase 01 is now executable; the remaining work is on
+  hardware this session cannot reach.
