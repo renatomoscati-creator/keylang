@@ -123,3 +123,33 @@ So if P1 fails, or if translation from the keyboard is much slower than from the
 **suspect the ANE background restriction before concluding that `TranslationSession` is
 extension-hostile**. Compare the same translation called from ProbeApp in the foreground against
 the keyboard, and log both. That comparison is the diagnostic.
+
+## Amendment: your stack is entirely on beta
+
+macOS 27 beta, Xcode 27 beta, iOS 27 beta. Two consequences.
+
+### You get MetricKit's extension memory diagnostics, which is a real win
+
+Building against the iOS 27 SDK unlocks `MemoryExceptionDiagnostic`, delivered "when your app or
+**app extension** is terminated for exceeding its memory limit". Before iOS 27 a jetsam kill
+produced no crash dialog and no crash log — the whole reason blocker B3 was so unpleasant. Now
+Apple reports the peak memory directly.
+
+`ProbeApp` subscribes on launch. **Payloads arrive asynchronously, usually within 24 hours.** So:
+run the five P2 passes, then come back the next day and tap Refresh. Compare
+`metrickit.peak_memory_mb` against the `jetsam.last_footprint_mb` you inferred from each run.
+Agreement validates the instrument; disagreement is worth knowing before Phase 03 depends on the
+number.
+
+### Every finding is CONFIRMED *on a beta stack*, not CONFIRMED
+
+Record the exact build numbers with your findings — Settings → General → About → Version for the
+phone, and Xcode → About for the toolchain.
+
+This matters more than it sounds. Research 08 established that **Apple changes keyboard-extension
+behaviour in point releases with no release-note announcement**: the host-app bundle ID started
+returning `nil` in iOS 26.4, took a vendor four months to work around, and the workaround was
+deleting the feature. A beta is a moving target of the same kind.
+
+**Re-run P1 and P2 at iOS 27 GM** before treating any of this as settled. Everything else can
+stand on the beta numbers.

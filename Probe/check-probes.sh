@@ -25,6 +25,7 @@ EXPECTED=(
   "P1|footprint.before"
   "P1|footprint.after"
   "P2|jetsam.last_footprint_mb"
+  "P2|metrickit.subscribed"
   "P2|mmap.footprint_before"
   "P2|mmap.footprint_after"
   "P3|availability.it_es"

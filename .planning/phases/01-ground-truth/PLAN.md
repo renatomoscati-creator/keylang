@@ -195,6 +195,13 @@ reconsider the foundation decision — not iOS 27, not licensing. Research 02 bu
    - immediately after a device reboot
    - after roughly two hours of ordinary phone use
 3. After each kill, reopen `ProbeApp` and read the last logged footprint.
+4. **MetricKit, available because the project builds against the iOS 27 SDK.**
+   `MemoryExceptionDiagnostic` is delivered "when your app or app extension is terminated for
+   exceeding its memory limit", which is Apple's own number rather than your inferred one.
+   Payloads arrive asynchronously, typically within 24 hours, so **come back to `ProbeApp` the
+   day after running P2 and tap Refresh**. Compare `metrickit.peak_memory_mb` against the last
+   `jetsam.last_footprint_mb` from each run: agreement validates the whole instrument, and a
+   disagreement is itself worth knowing before Phase 03 depends on the number.
 
 **Verification:**
 - Five values recorded, each tagged with its host and condition.
@@ -327,6 +334,12 @@ One button, one pass, all of these logged:
   for this and it is unresolvable even on-device. Do not build anything that depends on knowing.
 - **Task 7's `documentContextBeforeInput` results are per-host and per-OS-version**, and hosts
   change. Treat them as a snapshot that justifies the shadow buffer, not as a contract.
+- **The entire measurement stack is beta.** macOS 27 beta, Xcode 27 beta, iOS 27 beta. Every
+  number this phase produces is therefore CONFIRMED *on that stack*, not CONFIRMED absolutely.
+  **Record the exact build numbers** (Settings > General > About > Version, and Xcode > About)
+  alongside every finding. Research 08 established that Apple changes keyboard-extension
+  behaviour in *point* releases with no release-note announcement, and the host-bundle-ID
+  regression proves it. **Re-run P1 and P2 at iOS 27 GM** before treating any of this as settled.
 - **A single device is a sample of one.** Every number here is true for this iPhone 13 on this iOS
   build. That is the correct scope for a personal-use product, and it should be stated rather
   than quietly generalised.
