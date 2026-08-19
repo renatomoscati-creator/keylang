@@ -141,6 +141,27 @@ def build(sources: Path, out: Path, top_lemmas: int) -> dict:
     keep = {lemma for lemma, _ in ranked[:top_lemmas]}
     print(f"keeping top {top_lemmas} lemmas by frequency")
 
+    # Force-include the interference lemmas regardless of rank.
+    #
+    # False friends are LOW FREQUENCY by nature, so a frequency-ranked cut drops
+    # exactly the words this product is best placed to teach: `topo`, `gamba`,
+    # `caldo` and `internet` all fell outside the top 5000 and were silently
+    # absent until the lexicon self-check caught it. Ranking by corpus frequency
+    # optimises for what the learner will MEET; these are what will TRIP them.
+    forced: set[str] = set()
+    interference_path = Path("data/interference.json")
+    if interference_path.exists():
+        payload = json.loads(interference_path.read_text())
+        for group in ("italian", "english"):
+            for row in payload.get(group, []):
+                forced.add(normalize(row["es"]))
+        # Everyday words a learner meets constantly but that corpora under-rank.
+        forced.update({"internet", "hotel", "taxi", "email", "wifi"})
+        newly = forced - keep
+        keep |= forced
+        print(f"  force-including {len(forced)} interference and everyday lemmas "
+              f"({len(newly)} were outside the top {top_lemmas})")
+
     kept = [t for t in triples if t[0] in keep]
     print(f"  {len(kept)} triples survive")
 
@@ -243,16 +264,19 @@ def build(sources: Path, out: Path, top_lemmas: int) -> dict:
         struct.pack(f"<{len(entry_index)}I", *entry_index))
 
     # Zipf frequency per lemma, parallel to the lemma table.
-    # Zipf = log10(occurrences per billion) + 3, the standard scale.
+    #
+    # Zipf (van Heuven et al.) is log10(occurrences per billion tokens), which is
+    # the same thing as log10(per million) + 3. Writing it as
+    # log10(per billion) + 3 applies the shift twice and inflates every word by
+    # three whole points, which then feeds the difficulty prior and makes
+    # everything look far more familiar than it is. The scale runs roughly 1 for
+    # a rare word to 7-8 for `de`.
+    import math
     total = sum(freq.values())
     zipf = []
     for lemma, _ in sorted(lemmas.items(), key=lambda kv: kv[1]):
         count = freq.get(lemma, 0)
-        if count and total:
-            import math
-            value = math.log10(count / total * 1e9) + 3.0
-        else:
-            value = 0.0
+        value = math.log10(count / total * 1e9) if (count and total) else 0.0
         zipf.append(max(0.0, value))
     (out / "zipf.bin").write_bytes(struct.pack(f"<{len(zipf)}f", *zipf))
 
@@ -277,6 +301,7 @@ def build(sources: Path, out: Path, top_lemmas: int) -> dict:
             "unimorph_triples_kept": len(kept),
             "unimorph_verb_rows_capped_at_2^20": capped,
             "usage_triples_kept": len(usage_kept),
+            "forced_lemmas": sorted(forced),
         },
         "coverage": coverage,
         "bytes": sizes,

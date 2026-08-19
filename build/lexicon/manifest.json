@@ -1,0 +1,39 @@
+{
+  "format": "keylang-lexicon",
+  "version": 1,
+  "lemmas": 4655,
+  "coverage": {
+    "with_gloss": 4647,
+    "with_gloss_pct": 99.8,
+    "with_gender": 2698,
+    "cognate_en_over_0.7": 2207,
+    "cognate_en_over_0.7_pct": 47.4,
+    "cognate_it_over_0.7": 4194,
+    "cognate_it_over_0.7_pct": 90.1
+  },
+  "bytes": {
+    "cognate_en.bin": 18620,
+    "cognate_it.bin": 18620,
+    "gender.bin": 4655,
+    "glosses.blob": 98770,
+    "glosses.idx": 18624,
+    "italian_lookalike.blob": 30949,
+    "italian_lookalike.idx": 18624
+  },
+  "bytes_total": 208862,
+  "sources": [
+    {
+      "name": "doozan/spanish_data es-en.data (Wiktionary)",
+      "licence": "CC BY-SA"
+    },
+    {
+      "name": "hermitdave FrequencyWords en/it",
+      "licence": "CC BY-SA 3.0"
+    }
+  ],
+  "notes": [
+    "Glosses are a most-frequent-sense baseline, roughly 60-70% correct on all-words WSD. Mitigate at runtime with the translator-alignment check: translate the focus word alone and see whether it appears in the sentence translation. If it does not, show the sentence pair rather than a gloss.",
+    "cognate_it is orthographic and semantics-free by design. It answers 'does this look like a word the learner knows', which is the right question for a difficulty prior. False friends therefore score HIGH. Pair it with a curated false-friend list before using it to lower the difficulty of a meaning.",
+    "Arrays are parallel to the morphology lemma table and share its ids."
+  ]
+}

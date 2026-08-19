@@ -1,0 +1,4260 @@
+{
+ "format": "keylang-fsrs-golden",
+ "version": 1,
+ "tolerance": 1e-06,
+ "weights": [
+  0.212,
+  1.2931,
+  2.3065,
+  8.2956,
+  6.4133,
+  0.8334,
+  3.0194,
+  0.001,
+  1.8722,
+  0.1666,
+  0.796,
+  1.4835,
+  0.0614,
+  0.2629,
+  1.6483,
+  0.6014,
+  1.8729,
+  0.5425,
+  0.0912,
+  0.0658,
+  0.1542
+ ],
+ "eta": {
+  "EXPOSE_GLANCED": 0.03,
+  "EXPOSE_DWELLED": 0.1,
+  "TAPPED": 0.3,
+  "INSERTED": 0.0,
+  "RECALL": 1.0,
+  "PRODUCED": 1.0,
+  "CORRECTED": 1.0
+ },
+ "constants": {
+  "decay": -0.1542,
+  "factor": 0.9803464944134799,
+  "suppression_horizon_days": 7.0,
+  "seconds_per_day": 86400.0
+ },
+ "scalars": [
+  {
+   "fn": "retrievability",
+   "stability": 0.5,
+   "elapsed_days": 0.0,
+   "expect": 1.0
+  },
+  {
+   "fn": "retrievability",
+   "stability": 0.5,
+   "elapsed_days": 0.5,
+   "expect": 0.9
+  },
+  {
+   "fn": "retrievability",
+   "stability": 0.5,
+   "elapsed_days": 1.0,
+   "expect": 0.8458846451494335
+  },
+  {
+   "fn": "retrievability",
+   "stability": 0.5,
+   "elapsed_days": 7.0,
+   "expect": 0.6605208790506878
+  },
+  {
+   "fn": "retrievability",
+   "stability": 0.5,
+   "elapsed_days": 30.0,
+   "expect": 0.5321197762068469
+  },
+  {
+   "fn": "retrievability",
+   "stability": 0.5,
+   "elapsed_days": 365.0,
+   "expect": 0.3628368346589274
+  },
+  {
+   "fn": "retrievability",
+   "stability": 1.0,
+   "elapsed_days": 0.0,
+   "expect": 1.0
+  },
+  {
+   "fn": "retrievability",
+   "stability": 1.0,
+   "elapsed_days": 0.5,
+   "expect": 0.9403442888929227
+  },
+  {
+   "fn": "retrievability",
+   "stability": 1.0,
+   "elapsed_days": 1.0,
+   "expect": 0.9
+  },
+  {
+   "fn": "retrievability",
+   "stability": 1.0,
+   "elapsed_days": 7.0,
+   "expect": 0.7276209271652225
+  },
+  {
+   "fn": "retrievability",
+   "stability": 1.0,
+   "elapsed_days": 30.0,
+   "expect": 0.5906333946776322
+  },
+  {
+   "fn": "retrievability",
+   "stability": 1.0,
+   "elapsed_days": 365.0,
+   "expect": 0.4036796105835889
+  },
+  {
+   "fn": "retrievability",
+   "stability": 3.0,
+   "elapsed_days": 0.0,
+   "expect": 1.0
+  },
+  {
+   "fn": "retrievability",
+   "stability": 3.0,
+   "elapsed_days": 0.5,
+   "expect": 0.9769337027074396
+  },
+  {
+   "fn": "retrievability",
+   "stability": 3.0,
+   "elapsed_days": 1.0,
+   "expect": 0.9573357955610086
+  },
+  {
+   "fn": "retrievability",
+   "stability": 3.0,
+   "elapsed_days": 7.0,
+   "expect": 0.8323381592969588
+  },
+  {
+   "fn": "retrievability",
+   "stability": 3.0,
+   "elapsed_days": 30.0,
+   "expect": 0.6928266345726217
+  },
+  {
+   "fn": "retrievability",
+   "stability": 3.0,
+   "elapsed_days": 365.0,
+   "expect": 0.4777895927877922
+  },
+  {
+   "fn": "retrievability",
+   "stability": 10.0,
+   "elapsed_days": 0.0,
+   "expect": 1.0
+  },
+  {
+   "fn": "retrievability",
+   "stability": 10.0,
+   "elapsed_days": 0.5,
+   "expect": 0.9926480955829713
+  },
+  {
+   "fn": "retrievability",
+   "stability": 10.0,
+   "elapsed_days": 1.0,
+   "expect": 0.9856824087775146
+  },
+  {
+   "fn": "retrievability",
+   "stability": 10.0,
+   "elapsed_days": 7.0,
+   "expect": 0.9225903960291902
+  },
+  {
+   "fn": "retrievability",
+   "stability": 10.0,
+   "elapsed_days": 30.0,
+   "expect": 0.8093881035731708
+  },
+  {
+   "fn": "retrievability",
+   "stability": 10.0,
+   "elapsed_days": 365.0,
+   "expect": 0.5735586746235102
+  },
+  {
+   "fn": "retrievability",
+   "stability": 50.0,
+   "elapsed_days": 0.0,
+   "expect": 1.0
+  },
+  {
+   "fn": "retrievability",
+   "stability": 50.0,
+   "elapsed_days": 0.5,
+   "expect": 0.9984967984922138
+  },
+  {
+   "fn": "retrievability",
+   "stability": 50.0,
+   "elapsed_days": 1.0,
+   "expect": 0.9970103472148596
+  },
+  {
+   "fn": "retrievability",
+   "stability": 50.0,
+   "elapsed_days": 7.0,
+   "expect": 0.9803634263310375
+  },
+  {
+   "fn": "retrievability",
+   "stability": 50.0,
+   "elapsed_days": 30.0,
+   "expect": 0.9311509409583194
+  },
+  {
+   "fn": "retrievability",
+   "stability": 50.0,
+   "elapsed_days": 365.0,
+   "expect": 0.7235122127567452
+  },
+  {
+   "fn": "initial_stability",
+   "grade": 1,
+   "expect": 0.212
+  },
+  {
+   "fn": "initial_difficulty",
+   "grade": 1,
+   "expect": 6.4133
+  },
+  {
+   "fn": "initial_stability",
+   "grade": 2,
+   "expect": 1.2931
+  },
+  {
+   "fn": "initial_difficulty",
+   "grade": 2,
+   "expect": 5.112170705601055
+  },
+  {
+   "fn": "initial_stability",
+   "grade": 3,
+   "expect": 2.3065
+  },
+  {
+   "fn": "initial_difficulty",
+   "grade": 3,
+   "expect": 2.118103970459015
+  },
+  {
+   "fn": "initial_stability",
+   "grade": 4,
+   "expect": 8.2956
+  },
+  {
+   "fn": "initial_difficulty",
+   "grade": 4,
+   "expect": 1.0
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 1.0,
+   "grade": 1,
+   "expect": 7.0327612
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 1.0,
+   "grade": 2,
+   "expect": 4.0163806
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 1.0,
+   "grade": 3,
+   "expect": 1.0
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 1.0,
+   "grade": 4,
+   "expect": 1.0
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 3.5,
+   "grade": 1,
+   "expect": 7.8544942
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 3.5,
+   "grade": 2,
+   "expect": 5.6759971
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 3.5,
+   "grade": 3,
+   "expect": 3.4975
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 3.5,
+   "grade": 4,
+   "expect": 1.3190028999999999
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 5.0,
+   "grade": 1,
+   "expect": 8.347534
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 5.0,
+   "grade": 2,
+   "expect": 6.671767
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 5.0,
+   "grade": 3,
+   "expect": 4.996
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 5.0,
+   "grade": 4,
+   "expect": 3.320233
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 8.0,
+   "grade": 1,
+   "expect": 9.3336136
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 8.0,
+   "grade": 2,
+   "expect": 8.663306799999999
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 8.0,
+   "grade": 3,
+   "expect": 7.993
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 8.0,
+   "grade": 4,
+   "expect": 7.3226932
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 10.0,
+   "grade": 1,
+   "expect": 9.991
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 10.0,
+   "grade": 2,
+   "expect": 9.991
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 10.0,
+   "grade": 3,
+   "expect": 9.991
+  },
+  {
+   "fn": "next_difficulty",
+   "difficulty": 10.0,
+   "grade": 4,
+   "expect": 9.991
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "grade": 2,
+   "expect": 27.24830860267503
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "grade": 3,
+   "expect": 44.6453418734204
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "grade": 4,
+   "expect": 82.74336079472907
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "expect": 0.9009170437205758
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "eta": 0.03,
+   "expect": 2.309360256202612
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "eta": 0.1,
+   "expect": 5.3645341873420405
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "eta": 0.3,
+   "expect": 14.093602562026119
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "eta": 0.5,
+   "expect": 22.8226709367102
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "eta": 1.0,
+   "expect": 44.6453418734204
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "grade": 2,
+   "expect": 10.493198580769965
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "grade": 3,
+   "expect": 16.785165581592892
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "grade": 4,
+   "expect": 30.564036617765325
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "expect": 0.46595691931360417
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "eta": 0.03,
+   "expect": 1.4735549674477868
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "eta": 0.1,
+   "expect": 2.578516558159289
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "eta": 0.3,
+   "expect": 5.735549674477867
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "eta": 0.5,
+   "expect": 8.892582790796446
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "eta": 1.0,
+   "expect": 16.785165581592892
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "grade": 2,
+   "expect": 2.429046163253772
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "grade": 3,
+   "expect": 3.3761991407611767
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "grade": 4,
+   "expect": 5.450383370731608
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "expect": 0.3085914340303727
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "eta": 0.03,
+   "expect": 1.0712859742228353
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "eta": 0.1,
+   "expect": 1.2376199140761177
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "eta": 0.3,
+   "expect": 1.712859742228353
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "eta": 0.5,
+   "expect": 2.1880995703805883
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "eta": 1.0,
+   "expect": 3.3761991407611767
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "grade": 2,
+   "expect": 18.498872401783355
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "grade": 3,
+   "expect": 30.096894582280267
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "grade": 4,
+   "expect": 55.495573863152714
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "expect": 0.8516306565088784
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "eta": 0.03,
+   "expect": 1.872906837468408
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "eta": 0.1,
+   "expect": 3.909689458228027
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "eta": 0.3,
+   "expect": 9.72906837468408
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "eta": 0.5,
+   "expect": 15.548447291140134
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "eta": 1.0,
+   "expect": 30.096894582280267
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "grade": 2,
+   "expect": 7.328799053846644
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "grade": 3,
+   "expect": 11.523443721061927
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "grade": 4,
+   "expect": 20.709357745176884
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "expect": 0.4404658562802993
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "eta": 0.03,
+   "expect": 1.3157033116318577
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "eta": 0.1,
+   "expect": 2.0523443721061927
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "eta": 0.3,
+   "expect": 4.157033116318578
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "eta": 0.5,
+   "expect": 6.2617218605309635
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "eta": 1.0,
+   "expect": 11.523443721061927
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "grade": 2,
+   "expect": 1.9526974421691812
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "grade": 3,
+   "expect": 2.584132760507451
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "grade": 4,
+   "expect": 3.9669222471544052
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "expect": 0.29170935036479695
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "eta": 0.03,
+   "expect": 1.0475239828152236
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "eta": 0.1,
+   "expect": 1.158413276050745
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "eta": 0.3,
+   "expect": 1.4752398281522354
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "eta": 0.5,
+   "expect": 1.7920663802537256
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "eta": 1.0,
+   "expect": 2.584132760507451
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "grade": 2,
+   "expect": 6.832957467261118
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "grade": 3,
+   "expect": 10.69896486076009
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "grade": 4,
+   "expect": 19.165191287717573
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "expect": 0.8214432300582282
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "eta": 0.03,
+   "expect": 1.2909689458228026
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "eta": 0.1,
+   "expect": 1.969896486076009
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "eta": 0.3,
+   "expect": 3.909689458228027
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "eta": 0.5,
+   "expect": 5.849482430380045
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "eta": 1.0,
+   "expect": 10.69896486076009
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "grade": 2,
+   "expect": 3.1095996846155476
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "grade": 3,
+   "expect": 4.507814573687309
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "grade": 4,
+   "expect": 7.569785915058961
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "expect": 0.4248528313863961
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "eta": 0.03,
+   "expect": 1.1052344372106193
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "eta": 0.1,
+   "expect": 1.350781457368731
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "eta": 0.3,
+   "expect": 2.0523443721061927
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "eta": 0.5,
+   "expect": 2.7539072868436545
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "eta": 1.0,
+   "expect": 4.507814573687309
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "grade": 2,
+   "expect": 1.3175658140563937
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "grade": 3,
+   "expect": 1.5280442535024839
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "grade": 4,
+   "expect": 1.988974082384802
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "expect": 0.2813692404922815
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "eta": 0.03,
+   "expect": 1.0158413276050746
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "eta": 0.1,
+   "expect": 1.0528044253502484
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "eta": 0.3,
+   "expect": 1.158413276050745
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "eta": 0.5,
+   "expect": 1.264022126751242
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 1.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "eta": 1.0,
+   "expect": 1.5280442535024839
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "grade": 2,
+   "expect": 105.37439140147079
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "grade": 3,
+   "expect": 171.9012161647336
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "grade": 4,
+   "expect": 317.58928775492956
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "expect": 2.711838128988881
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "eta": 0.03,
+   "expect": 10.007036484942006
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "eta": 0.1,
+   "expect": 21.69012161647336
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "eta": 0.3,
+   "expect": 55.07036484942007
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "eta": 0.5,
+   "expect": 88.4506080823668
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "eta": 1.0,
+   "expect": 171.9012161647336
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "grade": 2,
+   "expect": 41.30230215675617
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "grade": 3,
+   "expect": 65.36298995137375
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "grade": 4,
+   "expect": 118.05384387992788
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "expect": 1.402570579686735
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "eta": 0.03,
+   "expect": 6.810889698541213
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "eta": 0.1,
+   "expect": 11.036298995137376
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "eta": 0.3,
+   "expect": 23.108896985412123
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "eta": 0.5,
+   "expect": 35.181494975686874
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "eta": 1.0,
+   "expect": 65.36298995137375
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "grade": 2,
+   "expect": 10.46471931172685
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "grade": 3,
+   "expect": 14.086663305166027
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "grade": 4,
+   "expect": 22.01841170424545
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "expect": 0.9288868746748619
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "eta": 0.03,
+   "expect": 5.27259989915498
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "eta": 0.1,
+   "expect": 5.908666330516603
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "eta": 0.3,
+   "expect": 7.725998991549807
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "eta": 0.5,
+   "expect": 9.543331652583014
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "eta": 1.0,
+   "expect": 14.086663305166027
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "grade": 2,
+   "expect": 71.91626093431385
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "grade": 3,
+   "expect": 116.26747744315573
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "grade": 4,
+   "expect": 213.39285850328636
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "expect": 2.5634818457856903
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "eta": 0.03,
+   "expect": 8.338024323294672
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "eta": 0.1,
+   "expect": 16.126747744315573
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "eta": 0.3,
+   "expect": 38.38024323294672
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "eta": 0.5,
+   "expect": 60.63373872157786
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "eta": 1.0,
+   "expect": 116.26747744315573
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "grade": 2,
+   "expect": 29.201534771170785
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "grade": 3,
+   "expect": 45.24199330091583
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "grade": 4,
+   "expect": 80.36922925328525
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "expect": 1.325840277863723
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "eta": 0.03,
+   "expect": 6.207259799027475
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "eta": 0.1,
+   "expect": 9.024199330091582
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "eta": 0.3,
+   "expect": 17.072597990274748
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "eta": 0.5,
+   "expect": 25.120996650457915
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "eta": 1.0,
+   "expect": 45.24199330091583
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "grade": 2,
+   "expect": 8.643146207817898
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "grade": 3,
+   "expect": 11.05777553677735
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "grade": 4,
+   "expect": 16.3456078028303
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "expect": 0.8780703444513666
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "eta": 0.03,
+   "expect": 5.18173326610332
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "eta": 0.1,
+   "expect": 5.6057775536777354
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "eta": 0.3,
+   "expect": 6.8173326610332055
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "eta": 0.5,
+   "expect": 8.028887768388675
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "eta": 1.0,
+   "expect": 11.05777553677735
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "grade": 2,
+   "expect": 27.305420311437956
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "grade": 3,
+   "expect": 42.089159147718576
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "grade": 4,
+   "expect": 74.46428616776214
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "expect": 2.4726150843724044
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "eta": 0.03,
+   "expect": 6.112674774431557
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "eta": 0.1,
+   "expect": 8.708915914771858
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "eta": 0.3,
+   "expect": 16.126747744315573
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "eta": 0.5,
+   "expect": 23.544579573859288
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "eta": 1.0,
+   "expect": 42.089159147718576
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "grade": 2,
+   "expect": 13.067178257056929
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "grade": 3,
+   "expect": 18.413997766971946
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "grade": 4,
+   "expect": 30.123076417761755
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "expect": 1.2788437241729582
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "eta": 0.03,
+   "expect": 5.402419933009158
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "eta": 0.1,
+   "expect": 6.341399776697195
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "eta": 0.3,
+   "expect": 9.024199330091584
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "eta": 0.5,
+   "expect": 11.706998883485973
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "eta": 1.0,
+   "expect": 18.413997766971946
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "grade": 2,
+   "expect": 6.214382069272633
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "grade": 3,
+   "expect": 7.019258512259117
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "grade": 4,
+   "expect": 8.781869267610102
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "expect": 0.8469457204855237
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "eta": 0.03,
+   "expect": 5.060577755367773
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "eta": 0.1,
+   "expect": 5.201925851225911
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "eta": 0.3,
+   "expect": 5.6057775536777354
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "eta": 0.5,
+   "expect": 6.009629256129559
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 5.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "eta": 1.0,
+   "expect": 7.019258512259117
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "grade": 2,
+   "expect": 408.8349587290696
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "grade": 3,
+   "expect": 663.2357145478377
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "grade": 4,
+   "expect": 1220.3516697766452
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "expect": 6.107262981473011
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "eta": 0.03,
+   "expect": 44.14707143643513
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "eta": 0.1,
+   "expect": 88.82357145478377
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "eta": 0.3,
+   "expect": 216.4707143643513
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "eta": 0.5,
+   "expect": 344.11785727391884
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.3,
+   "eta": 1.0,
+   "expect": 663.2357145478377
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "grade": 2,
+   "expect": 163.82119189521228
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "grade": 3,
+   "expect": 255.83004970936526
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "grade": 4,
+   "expect": 457.3216001006702
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "expect": 3.1586942040002044
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "eta": 0.03,
+   "expect": 31.924901491280956
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "eta": 0.1,
+   "expect": 48.08300497093653
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "eta": 0.3,
+   "expect": 94.24901491280957
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "eta": 0.5,
+   "expect": 140.41502485468263
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.7,
+   "eta": 1.0,
+   "expect": 255.83004970936526
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "grade": 2,
+   "expect": 45.897265549466525
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "grade": 3,
+   "expect": 59.74769795388514
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "grade": 4,
+   "expect": 90.07896349783148
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "expect": 2.0919229518294027
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "eta": 0.03,
+   "expect": 26.042430938616555
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "eta": 0.1,
+   "expect": 28.474769795388514
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "eta": 0.3,
+   "expect": 35.42430938616554
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "eta": 0.5,
+   "expect": 42.37384897694257
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 2.0,
+   "r": 0.95,
+   "eta": 1.0,
+   "expect": 59.74769795388514
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "grade": 2,
+   "expect": 280.88997248604636
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "grade": 3,
+   "expect": 450.49047636522505
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "grade": 4,
+   "expect": 821.9011131844301
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "expect": 5.773153498023276
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "eta": 0.03,
+   "expect": 37.76471429095675
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "eta": 0.1,
+   "expect": 67.5490476365225
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "eta": 0.3,
+   "expect": 152.64714290956752
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "eta": 0.5,
+   "expect": 237.74523818261252
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.3,
+   "eta": 1.0,
+   "expect": 450.49047636522505
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "grade": 2,
+   "expect": 117.54746126347486
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "grade": 3,
+   "expect": 178.88669980624348
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "grade": 4,
+   "expect": 313.21440006711344
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "expect": 2.985891805925046
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "eta": 0.03,
+   "expect": 29.6166009941873
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "eta": 0.1,
+   "expect": 40.38866998062435
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "eta": 0.3,
+   "expect": 71.16600994187306
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "eta": 0.5,
+   "expect": 101.94334990312174
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.7,
+   "eta": 1.0,
+   "expect": 178.88669980624348
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "grade": 2,
+   "expect": 38.93151036631102
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "grade": 3,
+   "expect": 48.165131969256755
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "grade": 4,
+   "expect": 68.38597566522098
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "expect": 1.9774803121440567
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "eta": 0.03,
+   "expect": 25.694953959077704
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "eta": 0.1,
+   "expect": 27.316513196925673
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "eta": 0.3,
+   "expect": 31.949539590777025
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "eta": 0.5,
+   "expect": 36.58256598462838
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 5.0,
+   "r": 0.95,
+   "eta": 1.0,
+   "expect": 48.165131969256755
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "grade": 2,
+   "expect": 110.29665749534878
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "grade": 3,
+   "expect": 166.83015878840837
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "grade": 4,
+   "expect": 290.63370439481
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "expect": 5.568514732053635
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "eta": 0.03,
+   "expect": 29.254904763652252
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "eta": 0.1,
+   "expect": 39.18301587884084
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "eta": 0.3,
+   "expect": 67.5490476365225
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "eta": 0.5,
+   "expect": 95.91507939420418
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.3,
+   "eta": 1.0,
+   "expect": 166.83015878840837
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "grade": 2,
+   "expect": 55.849153754491624
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "grade": 3,
+   "expect": 76.29556660208117
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "grade": 4,
+   "expect": 121.07146668903783
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "expect": 2.880052040068728
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "eta": 0.03,
+   "expect": 26.53886699806243
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "eta": 0.1,
+   "expect": 30.129556660208117
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "eta": 0.3,
+   "expect": 40.38866998062435
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "eta": 0.5,
+   "expect": 50.64778330104058
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.7,
+   "eta": 1.0,
+   "expect": 76.29556660208117
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "grade": 2,
+   "expect": 29.64383678877034
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "grade": 3,
+   "expect": 32.72171065641892
+  },
+  {
+   "fn": "stability_after_success",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "grade": 4,
+   "expect": 39.461991888407
+  },
+  {
+   "fn": "stability_after_failure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "expect": 1.9073853231670654
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "eta": 0.03,
+   "expect": 25.231651319692567
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "eta": 0.1,
+   "expect": 25.772171065641892
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "eta": 0.3,
+   "expect": 27.316513196925673
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "eta": 0.5,
+   "expect": 28.86085532820946
+  },
+  {
+   "fn": "stability_after_exposure",
+   "stability": 25.0,
+   "difficulty": 9.0,
+   "r": 0.95,
+   "eta": 1.0,
+   "expect": 32.72171065641892
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 0.0,
+   "cognate_max": 0.0,
+   "false_friend": false,
+   "expect": 6.8
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 0.0,
+   "cognate_max": 0.0,
+   "false_friend": true,
+   "expect": 8.2
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 0.0,
+   "cognate_max": 0.5,
+   "false_friend": false,
+   "expect": 5.699999999999999
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 0.0,
+   "cognate_max": 0.5,
+   "false_friend": true,
+   "expect": 7.1
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 0.0,
+   "cognate_max": 1.0,
+   "false_friend": false,
+   "expect": 4.6
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 0.0,
+   "cognate_max": 1.0,
+   "false_friend": true,
+   "expect": 6.0
+  },
+  {
+   "fn": "stability_prior",
+   "cognate_max": 0.0,
+   "expect": 0.4
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 2.0,
+   "cognate_max": 0.0,
+   "false_friend": false,
+   "expect": 5.9
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 2.0,
+   "cognate_max": 0.0,
+   "false_friend": true,
+   "expect": 7.300000000000001
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 2.0,
+   "cognate_max": 0.5,
+   "false_friend": false,
+   "expect": 4.800000000000001
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 2.0,
+   "cognate_max": 0.5,
+   "false_friend": true,
+   "expect": 6.200000000000001
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 2.0,
+   "cognate_max": 1.0,
+   "false_friend": false,
+   "expect": 3.7
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 2.0,
+   "cognate_max": 1.0,
+   "false_friend": true,
+   "expect": 5.1
+  },
+  {
+   "fn": "stability_prior",
+   "cognate_max": 0.2597402597402597,
+   "expect": 0.53228487897894
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 4.0,
+   "cognate_max": 0.0,
+   "false_friend": false,
+   "expect": 5.0
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 4.0,
+   "cognate_max": 0.0,
+   "false_friend": true,
+   "expect": 6.4
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 4.0,
+   "cognate_max": 0.5,
+   "false_friend": false,
+   "expect": 3.9
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 4.0,
+   "cognate_max": 0.5,
+   "false_friend": true,
+   "expect": 5.3
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 4.0,
+   "cognate_max": 1.0,
+   "false_friend": false,
+   "expect": 2.8
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 4.0,
+   "cognate_max": 1.0,
+   "false_friend": true,
+   "expect": 4.199999999999999
+  },
+  {
+   "fn": "stability_prior",
+   "cognate_max": 0.5194805194805194,
+   "expect": 0.7083179809740621
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 6.0,
+   "cognate_max": 0.0,
+   "false_friend": false,
+   "expect": 4.1
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 6.0,
+   "cognate_max": 0.0,
+   "false_friend": true,
+   "expect": 5.5
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 6.0,
+   "cognate_max": 0.5,
+   "false_friend": false,
+   "expect": 2.9999999999999996
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 6.0,
+   "cognate_max": 0.5,
+   "false_friend": true,
+   "expect": 4.3999999999999995
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 6.0,
+   "cognate_max": 1.0,
+   "false_friend": false,
+   "expect": 1.8999999999999995
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 6.0,
+   "cognate_max": 1.0,
+   "false_friend": true,
+   "expect": 3.2999999999999994
+  },
+  {
+   "fn": "stability_prior",
+   "cognate_max": 0.7792207792207793,
+   "expect": 0.9425673769534644
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 7.7,
+   "cognate_max": 0.0,
+   "false_friend": false,
+   "expect": 3.335
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 7.7,
+   "cognate_max": 0.0,
+   "false_friend": true,
+   "expect": 4.734999999999999
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 7.7,
+   "cognate_max": 0.5,
+   "false_friend": false,
+   "expect": 2.235
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 7.7,
+   "cognate_max": 0.5,
+   "false_friend": true,
+   "expect": 3.635
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 7.7,
+   "cognate_max": 1.0,
+   "false_friend": false,
+   "expect": 1.1349999999999998
+  },
+  {
+   "fn": "difficulty_prior",
+   "zipf": 7.7,
+   "cognate_max": 1.0,
+   "false_friend": true,
+   "expect": 2.5349999999999997
+  },
+  {
+   "fn": "stability_prior",
+   "cognate_max": 1.0,
+   "expect": 1.2016664095785734
+  }
+ ],
+ "scenarios": [
+  {
+   "name": "exposure only never earns silence",
+   "features": {
+    "zipf": 6.0,
+    "cognate_max": 0.3
+   },
+   "steps": [
+    {
+     "day": 1,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 0.925369847477135,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 1,
+      "effective_reps": 0.1,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.8549951500302776
+     },
+     "mastery": 0.9057468475196805,
+     "suppress": false
+    },
+    {
+     "day": 2,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 1.328741820854006,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 2,
+      "effective_reps": 0.2,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.7923532305735643
+     },
+     "mastery": 0.8650295998728168,
+     "suppress": false
+    },
+    {
+     "day": 3,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 1.7472756330155481,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 3,
+      "effective_reps": 0.30000000000000004,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.7531667198543194
+     },
+     "mastery": 0.8395583679053076,
+     "suppress": false
+    },
+    {
+     "day": 4,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 2.171902890555451,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 4,
+      "effective_reps": 0.4,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.7250089778965727
+     },
+     "mastery": 0.8212558356327723,
+     "suppress": false
+    },
+    {
+     "day": 5,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 2.5982273353623238,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 5,
+      "effective_reps": 0.5,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.7032101330703485
+     },
+     "mastery": 0.8070865864957265,
+     "suppress": false
+    },
+    {
+     "day": 6,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 3.0240287628724167,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 6,
+      "effective_reps": 0.6,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.6855243889092756
+     },
+     "mastery": 0.7955908527910291,
+     "suppress": false
+    },
+    {
+     "day": 7,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 3.44815565546072,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 7,
+      "effective_reps": 0.7,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.6707050773534566
+     },
+     "mastery": 0.7859583002797468,
+     "suppress": false
+    },
+    {
+     "day": 8,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 3.8700102050404035,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 8,
+      "effective_reps": 0.7999999999999999,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.6579910664572999
+     },
+     "mastery": 0.777694193197245,
+     "suppress": false
+    },
+    {
+     "day": 9,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 4.289294510400652,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 9,
+      "effective_reps": 0.8999999999999999,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.6468848961793646
+     },
+     "mastery": 0.770475182516587,
+     "suppress": false
+    },
+    {
+     "day": 10,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 4.705878601469649,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 10,
+      "effective_reps": 0.9999999999999999,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.6370443097311165
+     },
+     "mastery": 0.7640788013252258,
+     "suppress": false
+    },
+    {
+     "day": 11,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 5.119728598947045,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 11,
+      "effective_reps": 1.0999999999999999,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.6282241874759771
+     },
+     "mastery": 0.7583457218593851,
+     "suppress": false
+    },
+    {
+     "day": 12,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 5.530866105246538,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 12,
+      "effective_reps": 1.2,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.6202432192851985
+     },
+     "mastery": 0.753158092535379,
+     "suppress": false
+    },
+    {
+     "day": 13,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 5.939344544917762,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 13,
+      "effective_reps": 1.3,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.6129636870752603
+     },
+     "mastery": 0.7484263965989192,
+     "suppress": false
+    },
+    {
+     "day": 14,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 6.34523505516872,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 14,
+      "effective_reps": 1.4000000000000001,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.6062786344153951
+     },
+     "mastery": 0.7440811123700068,
+     "suppress": false
+    },
+    {
+     "day": 15,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 6.748617930520324,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 15,
+      "effective_reps": 1.5000000000000002,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.6001034128677388
+     },
+     "mastery": 0.7400672183640302,
+     "suppress": false
+    },
+    {
+     "day": 16,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 7.149577384393612,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 16,
+      "effective_reps": 1.6000000000000003,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5943699326037333
+     },
+     "mastery": 0.7363404561924266,
+     "suppress": false
+    },
+    {
+     "day": 17,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 7.548198335358716,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 17,
+      "effective_reps": 1.7000000000000004,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5890226445048977
+     },
+     "mastery": 0.7328647189281835,
+     "suppress": false
+    },
+    {
+     "day": 18,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 7.944564451154592,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 18,
+      "effective_reps": 1.8000000000000005,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5840156653700699
+     },
+     "mastery": 0.7296101824905454,
+     "suppress": false
+    },
+    {
+     "day": 19,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 8.338756984650725,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 19,
+      "effective_reps": 1.9000000000000006,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5793106781564814
+     },
+     "mastery": 0.7265519408017129,
+     "suppress": false
+    },
+    {
+     "day": 20,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 8.730854113092585,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 20,
+      "effective_reps": 2.0000000000000004,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5748753701292993
+     },
+     "mastery": 0.7236689905840445,
+     "suppress": false
+    },
+    {
+     "day": 21,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 9.120930598706817,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 21,
+      "effective_reps": 2.1000000000000005,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5706822521508523
+     },
+     "mastery": 0.7209434638980541,
+     "suppress": false
+    },
+    {
+     "day": 22,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 9.509057654384875,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 22,
+      "effective_reps": 2.2000000000000006,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5667077530594156
+     },
+     "mastery": 0.71836003948862,
+     "suppress": false
+    },
+    {
+     "day": 23,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 9.895302939273291,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 23,
+      "effective_reps": 2.3000000000000007,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5629315159105597
+     },
+     "mastery": 0.7159054853418638,
+     "suppress": false
+    },
+    {
+     "day": 24,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 10.27973063525569,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 24,
+      "effective_reps": 2.400000000000001,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5593358445770802
+     },
+     "mastery": 0.7135682989751021,
+     "suppress": false
+    },
+    {
+     "day": 25,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 10.662401572185594,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 25,
+      "effective_reps": 2.500000000000001,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5559052638732308
+     },
+     "mastery": 0.7113384215176,
+     "suppress": false
+    },
+    {
+     "day": 26,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 11.043373380742599,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 26,
+      "effective_reps": 2.600000000000001,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5526261664582108
+     },
+     "mastery": 0.709207008197837,
+     "suppress": false
+    },
+    {
+     "day": 27,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 11.42270065904485,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 27,
+      "effective_reps": 2.700000000000001,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5494865268291262
+     },
+     "mastery": 0.707166242438932,
+     "suppress": false
+    },
+    {
+     "day": 28,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 11.800435143974132,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 28,
+      "effective_reps": 2.800000000000001,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5464756677228695
+     },
+     "mastery": 0.7052091840198651,
+     "suppress": false
+    },
+    {
+     "day": 29,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 12.1766258813938,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 29,
+      "effective_reps": 2.9000000000000012,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5435840678528294
+     },
+     "mastery": 0.7033296441043391,
+     "suppress": false
+    },
+    {
+     "day": 30,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 12.551319391602227,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 30,
+      "effective_reps": 3.0000000000000013,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5408032025364473
+     },
+     "mastery": 0.7015220816486907,
+     "suppress": false
+    },
+    {
+     "day": 31,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 12.924559827817085,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 31,
+      "effective_reps": 3.1000000000000014,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5381254107106
+     },
+     "mastery": 0.69978151696189,
+     "suppress": false
+    },
+    {
+     "day": 32,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 13.2963891264596,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 32,
+      "effective_reps": 3.2000000000000015,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5355437832800325
+     },
+     "mastery": 0.6981034591320211,
+     "suppress": false
+    },
+    {
+     "day": 33,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 13.66684714865755,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 33,
+      "effective_reps": 3.3000000000000016,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5330520688357675
+     },
+     "mastery": 0.6964838447432489,
+     "suppress": false
+    },
+    {
+     "day": 34,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 14.035971812814173,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 34,
+      "effective_reps": 3.4000000000000017,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5306445936112503
+     },
+     "mastery": 0.6949189858473126,
+     "suppress": false
+    },
+    {
+     "day": 35,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 14.403799218368222,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 35,
+      "effective_reps": 3.5000000000000018,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5283161931819287
+     },
+     "mastery": 0.6934055255682536,
+     "suppress": false
+    },
+    {
+     "day": 36,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 14.770363761044853,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 36,
+      "effective_reps": 3.600000000000002,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5260621539079149
+     },
+     "mastery": 0.6919404000401447,
+     "suppress": false
+    },
+    {
+     "day": 37,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 15.135698240001997,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 37,
+      "effective_reps": 3.700000000000002,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5238781625048318
+     },
+     "mastery": 0.6905208056281407,
+     "suppress": false
+    },
+    {
+     "day": 38,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 15.499833957333388,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 38,
+      "effective_reps": 3.800000000000002,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.521760262430956
+     },
+     "mastery": 0.6891441705801213,
+     "suppress": false
+    },
+    {
+     "day": 39,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 15.862800810414456,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 39,
+      "effective_reps": 3.900000000000002,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5197048160186387
+     },
+     "mastery": 0.6878081304121151,
+     "suppress": false
+    },
+    {
+     "day": 40,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 16.22462737758063,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 40,
+      "effective_reps": 4.000000000000002,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.5563872513855121,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.5177084714691027
+     },
+     "mastery": 0.6865105064549167,
+     "suppress": false
+    }
+   ]
+  },
+  {
+   "name": "two recalls earn silence",
+   "features": {
+    "zipf": 6.0,
+    "cognate_max": 0.3
+   },
+   "steps": [
+    {
+     "day": 1,
+     "channel": "RECALL",
+     "grade": 3,
+     "recognition": {
+      "stability": 2.4013002318436265,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.5,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 2.3065,
+      "difficulty": 2.118103970459015,
+      "reps": 1,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 1.0,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "mastery": 1.0,
+     "suppress": false
+    },
+    {
+     "day": 3,
+     "channel": "RECALL",
+     "grade": 3,
+     "recognition": {
+      "stability": 6.099658467715367,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 1.0,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 10.964332335820703,
+      "difficulty": 2.116985866488556,
+      "reps": 2,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 2.0,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "mastery": 1.0,
+     "suppress": true
+    }
+   ]
+  },
+  {
+   "name": "a lapse takes silence away",
+   "features": {
+    "zipf": 6.0,
+    "cognate_max": 0.3
+   },
+   "steps": [
+    {
+     "day": 1,
+     "channel": "RECALL",
+     "grade": 3,
+     "recognition": {
+      "stability": 2.4013002318436265,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.5,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 2.3065,
+      "difficulty": 2.118103970459015,
+      "reps": 1,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 1.0,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "mastery": 1.0,
+     "suppress": false
+    },
+    {
+     "day": 3,
+     "channel": "RECALL",
+     "grade": 3,
+     "recognition": {
+      "stability": 6.099658467715367,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 1.0,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 10.964332335820703,
+      "difficulty": 2.116985866488556,
+      "reps": 2,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 2.0,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "mastery": 1.0,
+     "suppress": true
+    },
+    {
+     "day": 20,
+     "channel": "RECALL",
+     "grade": 1,
+     "recognition": {
+      "stability": 6.099658467715367,
+      "difficulty": 3.4399999999999995,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 1.0,
+      "last_graded_failed": false,
+      "retrievability": 0.8162098359010185
+     },
+     "production": {
+      "stability": 1.6230087307148526,
+      "difficulty": 7.399906858810897,
+      "reps": 3,
+      "lapses": 1,
+      "exposures": 0,
+      "effective_reps": 3.0,
+      "last_graded_failed": true,
+      "retrievability": 1.0
+     },
+     "mastery": 0.9356734425653565,
+     "suppress": false
+    }
+   ]
+  },
+  {
+   "name": "insert changes nothing",
+   "features": {
+    "zipf": 7.0,
+    "cognate_max": 0.9
+   },
+   "steps": [
+    {
+     "day": 1,
+     "channel": "INSERTED",
+     "grade": 3,
+     "recognition": {
+      "stability": 1.076493788939705,
+      "difficulty": 1.6699999999999997,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.9049834767076526
+     },
+     "production": {
+      "stability": 1.076493788939705,
+      "difficulty": 1.6699999999999997,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.9049834767076526
+     },
+     "mastery": 0.9049834767076526,
+     "suppress": false
+    },
+    {
+     "day": 2,
+     "channel": "INSERTED",
+     "grade": 3,
+     "recognition": {
+      "stability": 1.076493788939705,
+      "difficulty": 1.6699999999999997,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.8521951776242024
+     },
+     "production": {
+      "stability": 1.076493788939705,
+      "difficulty": 1.6699999999999997,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.8521951776242024
+     },
+     "mastery": 0.8521951776242024,
+     "suppress": false
+    },
+    {
+     "day": 3,
+     "channel": "INSERTED",
+     "grade": 3,
+     "recognition": {
+      "stability": 1.076493788939705,
+      "difficulty": 1.6699999999999997,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.8162169804607069
+     },
+     "production": {
+      "stability": 1.076493788939705,
+      "difficulty": 1.6699999999999997,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.8162169804607069
+     },
+     "mastery": 0.8162169804607069,
+     "suppress": false
+    }
+   ]
+  },
+  {
+   "name": "a transparent cognate starts nearly known",
+   "features": {
+    "zipf": 5.1,
+    "cognate_max": 1.0
+   },
+   "steps": [
+    {
+     "day": 1,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 1.6791308798450273,
+      "difficulty": 2.3049999999999997,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 1,
+      "effective_reps": 0.1,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 1.2016664095785734,
+      "difficulty": 2.3049999999999997,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.9121176985521964
+     },
+     "mastery": 0.9428765040589276,
+     "suppress": false
+    }
+   ]
+  },
+  {
+   "name": "a false friend starts harder than its form suggests",
+   "features": {
+    "zipf": 4.1,
+    "cognate_max": 1.0,
+    "false_friend": true
+   },
+   "steps": [
+    {
+     "day": 1,
+     "channel": "TAPPED",
+     "grade": 3,
+     "recognition": {
+      "stability": 2.3292952648887093,
+      "difficulty": 4.154999999999999,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 1,
+      "effective_reps": 0.3,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 1.2016664095785734,
+      "difficulty": 4.154999999999999,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.9121176985521964
+     },
+     "mastery": 0.9428765040589276,
+     "suppress": false
+    },
+    {
+     "day": 5,
+     "channel": "RECALL",
+     "grade": 1,
+     "recognition": {
+      "stability": 2.3292952648887093,
+      "difficulty": 4.154999999999999,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 1,
+      "effective_reps": 0.3,
+      "last_graded_failed": false,
+      "retrievability": 0.8588039374541759
+     },
+     "production": {
+      "stability": 0.212,
+      "difficulty": 6.4133,
+      "reps": 1,
+      "lapses": 1,
+      "exposures": 0,
+      "effective_reps": 1.0,
+      "last_graded_failed": true,
+      "retrievability": 1.0
+     },
+     "mastery": 0.9505813781089616,
+     "suppress": false
+    }
+   ]
+  },
+  {
+   "name": "production credits recognition, not the reverse",
+   "features": {
+    "zipf": 6.0,
+    "cognate_max": 0.2
+   },
+   "steps": [
+    {
+     "day": 1,
+     "channel": "PRODUCED",
+     "grade": 3,
+     "recognition": {
+      "stability": 2.245132290206981,
+      "difficulty": 3.6599999999999997,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.5,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 2.3065,
+      "difficulty": 2.118103970459015,
+      "reps": 1,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 1.0,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "mastery": 1.0,
+     "suppress": false
+    },
+    {
+     "day": 8,
+     "channel": "PRODUCED",
+     "grade": 3,
+     "recognition": {
+      "stability": 10.073368878214287,
+      "difficulty": 3.6599999999999997,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 1.0,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 21.411391979982007,
+      "difficulty": 2.116985866488556,
+      "reps": 2,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 2.0,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "mastery": 1.0,
+     "suppress": true
+    }
+   ]
+  },
+  {
+   "name": "mixed real usage over a month",
+   "features": {
+    "zipf": 6.05,
+    "cognate_max": 0.4
+   },
+   "steps": [
+    {
+     "day": 1,
+     "channel": "EXPOSE_GLANCED",
+     "grade": 3,
+     "recognition": {
+      "stability": 0.7379940314573112,
+      "difficulty": 3.1975,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 1,
+      "effective_reps": 0.03,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.6210828874045345,
+      "difficulty": 3.1975,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.8641090648662715
+     },
+     "mastery": 0.9116708921630765,
+     "suppress": false
+    },
+    {
+     "day": 2,
+     "channel": "EXPOSE_DWELLED",
+     "grade": 3,
+     "recognition": {
+      "stability": 1.1403404712081018,
+      "difficulty": 3.1975,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 2,
+      "effective_reps": 0.13,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.6210828874045345,
+      "difficulty": 3.1975,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.8027601843732461
+     },
+     "mastery": 0.87179411984261,
+     "suppress": false
+    },
+    {
+     "day": 4,
+     "channel": "TAPPED",
+     "grade": 3,
+     "recognition": {
+      "stability": 3.186902922101632,
+      "difficulty": 3.1975,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 3,
+      "effective_reps": 0.43,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 0.6210828874045345,
+      "difficulty": 3.1975,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 0.0,
+      "last_graded_failed": false,
+      "retrievability": 0.7357821413104543
+     },
+     "mastery": 0.8282583918517953,
+     "suppress": false
+    },
+    {
+     "day": 7,
+     "channel": "RECALL",
+     "grade": 2,
+     "recognition": {
+      "stability": 8.474031115494203,
+      "difficulty": 3.1975,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 3,
+      "effective_reps": 0.9299999999999999,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 1.2931,
+      "difficulty": 5.112170705601055,
+      "reps": 1,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 1.0,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "mastery": 1.0,
+     "suppress": false
+    },
+    {
+     "day": 14,
+     "channel": "RECALL",
+     "grade": 3,
+     "recognition": {
+      "stability": 19.32487019205,
+      "difficulty": 3.1975,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 3,
+      "effective_reps": 1.43,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 11.608961341879295,
+      "difficulty": 5.108058534895454,
+      "reps": 2,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 2.0,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "mastery": 1.0,
+     "suppress": true
+    },
+    {
+     "day": 16,
+     "channel": "INSERTED",
+     "grade": 3,
+     "recognition": {
+      "stability": 19.32487019205,
+      "difficulty": 3.1975,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 3,
+      "effective_reps": 1.43,
+      "last_graded_failed": false,
+      "retrievability": 0.9852091758830398
+     },
+     "production": {
+      "stability": 11.608961341879295,
+      "difficulty": 5.108058534895454,
+      "reps": 2,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 2.0,
+      "last_graded_failed": false,
+      "retrievability": 0.9762229882579309
+     },
+     "mastery": 0.979368153926719,
+     "suppress": true
+    },
+    {
+     "day": 21,
+     "channel": "PRODUCED",
+     "grade": 3,
+     "recognition": {
+      "stability": 30.43303677169425,
+      "difficulty": 3.1975,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 3,
+      "effective_reps": 1.93,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 28.32824882030689,
+      "difficulty": 5.103950476360558,
+      "reps": 3,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 3.0,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "mastery": 1.0,
+     "suppress": true
+    },
+    {
+     "day": 30,
+     "channel": "RECALL",
+     "grade": 3,
+     "recognition": {
+      "stability": 44.03198097255546,
+      "difficulty": 3.1975,
+      "reps": 0,
+      "lapses": 0,
+      "exposures": 3,
+      "effective_reps": 2.4299999999999997,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "production": {
+      "stability": 48.94260118957572,
+      "difficulty": 5.099846525884198,
+      "reps": 4,
+      "lapses": 0,
+      "exposures": 0,
+      "effective_reps": 4.0,
+      "last_graded_failed": false,
+      "retrievability": 1.0
+     },
+     "mastery": 1.0,
+     "suppress": true
+    }
+   ]
+  }
+ ],
+ "_comment": "The Swift implementation must reproduce every value here within `tolerance`. Regenerate with tools/engine/golden.py whenever the model changes, and treat a diff in this file as a deliberate model change requiring a note in STATE.md, never as noise."
+}
