@@ -1,10 +1,11 @@
 # State: keylang
 
 current phase: 01 - ground truth
-status: project INITIALIZED. PROJECT.md, ROADMAP.md (8 phases), config.json written from a
-completed research and stress-test pass. No phase planned yet. Two prerequisite questions are
-out to research (Apple Developer Program necessity, iOS 27 SDK submission floor) and must land
-before phase 01 CONTEXT can lock.
+status: phase 01 PLANNED. CONTEXT.md + PLAN.md written and committed. Three gray areas left open
+for the executor (G1 which Mac, G2 which iOS on the phone, G3 free or paid provisioning) because
+they change the steps but not the shape. Awaiting a go-ahead to build, and the build is on
+hardware this session cannot reach: it needs macOS with Xcode 26 and the physical iPhone 13.
+All ten research passes are complete and every prerequisite question has landed.
 
 ## Log
 - 2026-08-18 project initialized from a seven-agent research pass rather than a brainstorm
