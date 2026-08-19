@@ -45,3 +45,21 @@ before phase 01 CONTEXT can lock.
   revision once that research lands. Two smaller upsides: 60 Hz relaxes the frame budget from
   8.3 ms to 16.7 ms, and a single known target device makes phase 01's measurements exact
   rather than a range across a device matrix.
+- 2026-08-19 CORRECTION to a Phase-0 blocker. Research 04 concluded that App Groups and Keychain
+  Sharing require the paid Apple Developer Program, and that conclusion propagated into
+  STRESS-TEST.md blocker B1 and into PROJECT.md's open prerequisite. It is wrong. Apple's own
+  capability matrix lists both as available in the free tier, and AltStore's production signing
+  path creates App Group identifiers through the portal API for free teams with no gate, shipping
+  an app plus an app extension that share one. The original error was over-reading an accurate
+  Apple DTS quote: it says the portal must mint the group, not that it refuses free teams. What
+  is actually gated is Xcode's automatic-signing UI, not the entitlement. Consequence for
+  planning: the persistence design (PRD section 12 P0, section 19, section 7 keychain BYOK) is
+  NOT blocked by the free tier and can be built and validated without paying. The paid membership
+  is still effectively mandatory, but for the 7-day provisioning-profile expiry, which no
+  sideloader can extend because it is enforced server-side at signing, and whose failure mode is
+  a silent mid-sentence death of the keyboard requiring a laptop to recover. Revised sequencing:
+  the 99 dollars lands before the first dogfooding milestone rather than before the first line of
+  code. Also ruled out: LiveContainer cannot host app extensions at all, and every EU DMA
+  distribution route is a superset of the paid membership rather than an alternative to it.
+  Correction notice appended to research 04 rather than rewriting it, so the original reasoning
+  stays auditable. STRESS-TEST.md B1 and decision D1 revised.

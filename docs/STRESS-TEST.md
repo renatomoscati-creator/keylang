@@ -18,11 +18,32 @@ The most important asymmetry to internalise: **the research lowered the technica
 
 Ordered by how early they bite.
 
-### B1. The $99/yr Apple Developer Program is a Phase-0 prerequisite, not a launch concern
+### B1. The paid membership is effectively mandatory, but the reason is the 7-day profile
 
-App Group IDs are **mediated by the developer portal** (Apple DTS, verbatim: *"An app can't use an App Group unless its profile includes the group ID in its `com.apple.security.application-groups` allowlist"*), and the portal is membership-only. Keychain access groups are gated the same way. Free personal-team profiles **expire every 7 days**, which means the keyboard silently stops loading mid-week — fatal for a product whose success condition (§2) is *"leave it enabled as the default keyboard for daily messaging."*
+> **Revised 2026-08-19.** This blocker originally said App Groups and Keychain Sharing require
+> the paid program. **That was wrong**, and research 09 corrects it. Apple's own capability
+> matrix lists **App groups: yes** and **Keychain sharing: yes** in the free "Apple Developer"
+> column, which Apple defines as "No cost is associated with this agreement." Corroborated at
+> source level: AltStore's production signing path creates App Group identifiers through the
+> portal API for free teams with no gate, and AltStore itself ships an app plus an app extension
+> sharing an App Group, installed by millions of users on free Apple IDs. The Apple DTS quote
+> research 04 relied on is accurate but was over-read: it says the portal must *mint* the group,
+> not that it refuses free teams. What is actually gated is **Xcode's automatic-signing UI**, not
+> the entitlement (LIKELY, not confirmed).
+>
+> **So PRD §12 P0's shared App Group settings, all of §19, and §7's Keychain BYOK are NOT blocked
+> by the free tier.** That part of the persistence design can be built and validated without
+> paying.
 
-**PRD §12 P0 "Shared App Group settings", all of §19, and the §26 Phase-0 deliverable "App Group" cannot be built on a free account.** There is no workaround. *(Research 04 §1)*
+**What actually blocks it is the 7-day provisioning-profile expiry**, re-confirmed on Apple's own pages on 2026-08-19: *"Provisioning profiles will expire 7 days from issuance, which may require you to rebuild and re-install your app to your device after expiration."* No sideloader can extend it — the expiry is enforced server-side at signing time, not by the client.
+
+The failure mode is what decides it. When the profile expires the host app will not launch and iOS refuses to load the extension, **silently, mid-sentence, in whatever app you are typing in.** No warning, no grace period, no notification. Recovery needs a laptop or a working sideloader, which is not something you can do from the message you are currently trying to send. For a product whose success condition is "leave it enabled as the default keyboard for daily messaging," that is a defect, not friction.
+
+Sideloaders (AltStore Classic, SideStore, both actively maintained and both shipping iOS 26.4 fixes in 2026) automate the weekly re-sign and reach ~0 minutes/week in steady state. But expect **2 to 4 multi-day outages per year** keyed to iOS point releases breaking the lockdown/pairing layer. LiveContainer, the usual answer to the 3-app limit, **cannot work at all** — its README states plainly that app extensions are unsupported, and a keyboard must register with SpringBoard.
+
+**EU alternative distribution is not an escape hatch.** AltStore PAL is free for *users* but requires a paid account plus Apple notarization for *developers*. Web Distribution's gate loosened under the 2026-10-01 unified EU terms but still requires one of seven corporate or financial credentials (D&B rating, public listing, named-fund VC money, a $1M standby letter of credit, an audit, nonprofit status, or 1M annual installs) — an Italian sole individual meets none. The Enterprise Program needs 100+ employees. **The DMA opened distribution to third parties, not development to non-members.**
+
+**Revised sequencing:** the $99 is not needed before the first line of code. It is needed **before the first dogfooding milestone** — before this becomes your actual keyboard. That is a few weeks of runway, not a hard gate on Phase 0. *(Research 09; corrects Research 04 §1.3-1.4)*
 
 ### B2. Writing to the App Group requires Full Access — §23 and §19 are mutually inconsistent
 
@@ -210,7 +231,7 @@ Worth stating, because the rewrite should not throw these away:
 
 | # | Decision | Recommendation |
 |---|---|---|
-| D1 | Pay the $99 Apple Developer Program? | **Yes, now.** B1 makes it a prerequisite, not a launch cost |
+| D1 | Pay the $99 Apple Developer Program? | **Yes, but before first dogfooding rather than before first code.** Revised: App Groups and Keychain Sharing are available free, so the persistence design is not blocked. The 7-day profile expiry is what makes the free tier unusable as a daily driver. A sideloader (AltStore/SideStore) is a reasonable Phase-0 convenience, not a shipping configuration |
 | D2 | Keyboard foundation | **Vendor OpenKeyboardKit (MIT) into the repo**, after a 2-day throwaway KeyboardKit spike to calibrate the quality bar. First Phase-0 task: get it building under Xcode 26. ~1–2 days remediation expected (stale `exact:` dependency pins are the likely failure, not the 22.7k LOC) |
 | D3 | Deployment target | **iOS 26.0**, built with the **iOS 26 SDK (Xcode 26)**. iOS 26 unlocks headless `TranslationSession` and Foundation Models and gives one Liquid Glass visual target. Defer the iOS 27 SDK until ~27.1 — iOS 27 exposes **no new keyboard API whatsoever** (verified four independent ways) |
 | D4 | Translation engine | **On-device first** (§2). Remote LLM becomes an opt-in escalation rung, deferred out of V1 |
@@ -233,3 +254,5 @@ Worth stating, because the rewrite should not throw these away:
 | 05 | [LLM API latency, cost, contract](research/05-llm-api-latency-cost.md) | 1.5 s p50 is not achievable one-shot; §15's schema makes its own responses uncacheable |
 | 06 | [Learning science & engine](research/06-learning-science-engine.md) | The mastery model is not a memory model; exposure ≠ learning; fire on send |
 | 07 | [Adversarial red team](research/07-prd-red-team.md) | 75 findings; the kill-shot is that nobody wants to insert Spanish into a message to an English speaker |
+| 08 | [iOS 27 SDK floor & behaviour gaps](research/08-ios27-sdk-and-behaviour-gaps.md) | iOS 26 SDK floor CONFIRMED with no iOS 27 deadline; the App Store accepts nothing built with the 27.0 SDK today; host-app identity is permanently `nil` |
+| 09 | [Free-tier personal-device paths](research/09-free-tier-personal-device-paths.md) | **Corrects 04**: App Groups and Keychain Sharing are free-tier capabilities. The real blocker is the 7-day profile, which no sideloader and no EU route can extend |
