@@ -17,10 +17,17 @@ is the reason to start now and the reason to start differently than the PRD says
 extension out-of-process, with Apple DTS confirming the memory increase is "very minimal".
 Two independent confirmations that this works inside a keyboard extension: a shipping
 project runs `LanguageModelSession` with `RequestsOpenAccess: false`, and KeyboardKit's own
-shipped Mach-O links `FoundationModels`. So translation, focus selection, explanation,
-correction and recall generation all run locally, with no proxy, no API key, no network, no
-per-request cost, and no Full Access. PRD section 8 has its local and remote columns
+shipped Mach-O links `FoundationModels`. PRD section 8 has its local and remote columns
 backwards.
+
+**That finding is now half applicable.** The target device was subsequently fixed to an
+iPhone 13, which is not Apple Intelligence capable, so Foundation Models is off the table
+here regardless of what it can do in principle. Translation is expected to survive on
+traditional models. The consequence is that the *translation* half of the inversion holds and
+the *teaching* half does not: focus selection, glossing, explanation, correction and recall
+generation must come from bundled deterministic data, from a remote call on explicit user
+action, or from both. The zero-network story survives for translation and weakens for
+teaching.
 
 **The product risk did not move at all.** The red team and the learning-science pass reached
 the same conclusion independently: the PRD's terminal action, inserting a machine
@@ -77,6 +84,18 @@ weight attenuating ungraded exposures, and cold-start difficulty priors driven b
 distance. `mastery` becomes a derived display value and never a decision variable.
 
 ## Constraints
+- **Target device: iPhone 13, and only iPhone 13.** A15 Bionic, 4 GB RAM, 60 Hz display.
+  This is a hard constraint with one large consequence: **the iPhone 13 is not Apple
+  Intelligence capable** (that needs A17 Pro or better), so the **Foundation Models framework
+  is permanently unavailable**. `SystemLanguageModel.default.availability` returns
+  `.unavailable(.deviceNotEligible)` and will never return anything else on this hardware.
+  Everything the research proposed running through Foundation Models (focus selection,
+  one-line explanations, Spanish correction, recall generation) needs another source. The
+  Translation framework is a separate system and is believed to survive, because it is not
+  Apple Intelligence gated and iOS 26.4 exposes a `.lowLatency` strategy documented as
+  "traditional models on all devices"; this is under verification. Two upsides: 60 Hz relaxes
+  the frame budget from 8.3 ms to 16.7 ms, and a single known device makes every measurement
+  in phase 01 exact rather than a range.
 - **Target: iOS 26.0, built with the iOS 26 SDK (Xcode 26).** iOS 26 is the floor because
   headless `TranslationSession` and Foundation Models both require it, and because it gives
   one Liquid Glass visual target instead of maintaining pre-26 and 26+ appearances. Do not
@@ -135,10 +154,16 @@ IN: iPhone only. Peninsular Spanish only. English and Italian as source language
 translation and teaching. A Share Sheet study surface. A keyboard extension. A local learning
 engine with an append-only event log. An honest evaluation protocol.
 
-OUT for now: any remote LLM call (deferred to an opt-in escalation rung, not V1), any proxy
-or API key or backend, Android, iPad layouts, swipe typing, App Store submission, other
-language pairs, accounts or sync. Mode C code-switching is out of V1 and enters only as a
-flagged experiment with a stated success criterion.
+OUT for now: Android, iPad layouts, swipe typing, App Store submission, other language
+pairs, accounts or sync, and any device other than the iPhone 13. Mode C code-switching is out
+of V1 and enters only as a flagged experiment with a stated success criterion.
+
+UNDER REVIEW because of the device constraint: whether a remote LLM call re-enters V1. It was
+scoped out when Foundation Models looked available. With Foundation Models gone, the teaching
+layer is either bundled deterministic data or a remote call on explicit user action. The
+default remains local and offline; a remote escalation rung is admitted only if phase 01
+shows the deterministic path cannot produce a usable explanation, and if it is admitted it
+brings the proxy, key handling, consent gate and spend cap back with it.
 
 OPEN PREREQUISITE: whether the Apple Developer Program membership is purchased. This decides
 whether App Groups and Keychain sharing exist, and therefore whether the host app can read
