@@ -1,0 +1,4 @@
+{
+  "architecture": "ton",
+  "workflow": { "tdd_mode": false, "use_worktrees": true, "review_depth": "standard" }
+}
