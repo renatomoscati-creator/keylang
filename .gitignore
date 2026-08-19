@@ -8,3 +8,11 @@ build/sources/
 xcuserdata/
 *.xcuserstate
 DerivedData/
+
+# Staged runtime data root. tools/stage-data.sh rebuilds it from build/ and data/.
+build/LinguaKeyData/
+
+# SwiftPM
+.build/
+.swiftpm/
+Package.resolved

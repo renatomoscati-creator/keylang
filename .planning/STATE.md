@@ -1,11 +1,16 @@
 # State: keylang
 
-current phase: 01 - ground truth
-status: phase 01 PLANNED. CONTEXT.md + PLAN.md written and committed. Three gray areas left open
-for the executor (G1 which Mac, G2 which iOS on the phone, G3 free or paid provisioning) because
-they change the steps but not the shape. Awaiting a go-ahead to build, and the build is on
-hardware this session cannot reach: it needs macOS with Xcode 26 and the physical iPhone 13.
-All ten research passes are complete and every prerequisite question has landed.
+current phase: 01 - ground truth (probes pending hardware), with phase 03 engine work pulled
+forward because it does not depend on the probe outcome
+status: phase 01 CONTEXT + PLAN written, gray areas resolved, probe harness written under
+`Probe/`. The remaining phase 01 work is measurement on hardware this session cannot reach: a
+MacBook Pro M4 Pro running Xcode 27 beta and the physical iPhone 13 on iOS 27 beta. Everything
+that does not depend on P1's answer has been built ahead of it: the linguistic data build
+(`tools/build-data/`, 3.67 MB morphology + 0.20 MB lexicon, both checked), the reference engine
+(`tools/engine/`, 34 memory-model properties and 26 focus behaviours passing), and the Swift port
+(`LinguaKeyCore/`, pinned to the reference by 336 golden scalars and 8 scenario replays). One
+command at the repository root, `./check.sh`, runs all of it. All ten research passes are
+complete and every prerequisite question has landed.
 
 ## Log
 - 2026-08-18 project initialized from a seven-agent research pass rather than a brainstorm
@@ -112,3 +117,27 @@ All ten research passes are complete and every prerequisite question has landed.
   all seven probes, and a self-check that names any probe which never ran (verified against a
   partial log: 3 found, 19 named missing). Phase 01 is now executable; the remaining work is on
   hardware this session cannot reach.
+- 2026-08-19 engine PORTED to Swift and pinned to the reference. `LinguaKeyCore/` now carries the
+  memory model, the mmap'd table reader, the false-friend list and the focus selector as a pure
+  Foundation SwiftPM package with no UIKit, Translation or SwiftUI dependency, so it compiles and
+  tests on the Mac with no device and no provisioning profile. No Swift toolchain is reachable from
+  this session, so the port is verified by mechanism rather than by having run it: 336 golden
+  scalars and 8 full scenario replays from `tools/engine/golden.py` are compared step by step
+  against the Python reference, and the focus behaviours are ported as behaviour tests over the
+  same built tables rather than as frozen vectors, because freezing selector output would freeze
+  the 3.7 MB data build with it and a rebuild would then read as a regression. Porting surfaced
+  four real divergences from the reference, all now fixed in the Swift and all four invisible
+  until an exact tie or a suppressed word occurred: `max(by:)` keeps the LAST maximal element
+  where Python's `max` keeps the first, so ambiguous readings could resolve to different lemmas;
+  `Array.sort` is not stable where Python's `list.sort` is, so equal-scoring candidates could
+  order differently; the reason ladder had drifted (`readiness < 1.0` instead of `r < 0.85`, and
+  a missing "very common" branch); and a suppressed lemma silenced only its vocabulary note and
+  not its grammar note, which would have kept annotating the paradigm cell of a word the learner
+  had demonstrably mastered. The last one is a genuine behaviour bug, not a porting artifact, and
+  it now has a test on both sides. Reference suite is up from 22 to 26 focus behaviours (tokenizer
+  digits, NFC decomposed-versus-precomposed accents, and suppression being total). Decision taken
+  without the user: the package ships **no** SPM resources. A keyboard extension reads its tables
+  from the App Group container, never from `Bundle.module`, so bundling them would put a second
+  3.9 MB of identical binary under version control to serve a code path the product never takes;
+  `tools/stage-data.sh` assembles the single runtime data root instead, and the tests reach the
+  committed copies via `#filePath`.

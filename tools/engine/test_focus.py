@@ -131,6 +131,35 @@ check("noun gender and number never become a grammar note",
       not any(c.key.startswith("CELL:N|") for c in pick("Quiero un vaso de agua")))
 
 
+# --------------------------------------------------------- tokenizer and NFC
+
+check("digits and punctuation are not words",
+      focus.tokenize("Son las 8:30, \u00bfvale?") == ["Son", "las", "vale"])
+
+# iOS hands you decomposed accents from some hosts and precomposed from others,
+# and the two are different bytes for the same word.
+check("decomposed and precomposed accents select the same thing",
+      [c.key for c in pick("llegare\u0301")] == [c.key for c in pick("llegar\u00e9")])
+
+
+# --------------------------------------------------------- suppression is total
+
+# A suppressed lemma has to silence its grammar note too. Annotating the
+# paradigm cell of a word the learner has demonstrably mastered still puts a bar
+# on screen about a word they know, which is what suppression exists to stop.
+llegar_key = "LEM:llegar|V|0"
+known = fsrs.new_item(llegar_key, zipf=6.05, cognate_max=1.0, now=0.0)
+for day in (1, 3, 8, 20):
+    fsrs.observe(known, Channel.RECALL, now=day * fsrs.SECONDS_PER_DAY, grade=Grade.EASY)
+horizon = 20 * fsrs.SECONDS_PER_DAY
+check("precondition: llegar is suppressed after four easy recalls",
+      fsrs.should_suppress(known, horizon))
+check("a suppressed lemma silences its grammar note too",
+      not [c for c in pick("Probablemente llegar\u00e9 sobre las ocho",
+                           {llegar_key: known}, now=horizon)
+           if c.surface.lower() == "llegar\u00e9"])
+
+
 print()
 if failures:
     print(f"FAIL: {len(failures)} of {passed + len(failures)}")
