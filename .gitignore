@@ -16,3 +16,6 @@ build/LinguaKeyData/
 .build/
 .swiftpm/
 Package.resolved
+
+# Free personal team identifiers are per developer and must not be committed.
+LinguaKeyApp/Local.xcconfig

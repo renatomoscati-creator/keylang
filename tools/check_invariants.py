@@ -47,20 +47,34 @@ check("there are Swift sources to check", len(sources) > 0, f"found {len(sources
 # `TranslationSession` cannot be constructed outside SwiftUI's `.translationTask`,
 # cannot be unit-tested, and does not exist in the Simulator. The whole point of
 # the protocol is that exactly one file knows that.
-ALLOWED_TRANSLATION_IMPORTERS = {
-    "LinguaKeyApp/LinguaKey/SystemTranslator.swift",
-    "Probe/ProbeApp/ProbeApp.swift",
-    "Probe/ProbeApp/ContentView.swift",
-    "Probe/ProbeKeyboard/Probes.swift",
-    "Probe/ProbeKeyboard/KeyboardViewController.swift",
-}
+# StudySystem IS the boundary, so the whole module may import it. Probe/ is the
+# throwaway phase 01 harness and is exempt by design.
+TRANSLATION_ALLOWED_PREFIXES = (
+    "LinguaKeyApp/Sources/StudySystem/",
+    "Probe/",
+)
 importers = {
     str(p.relative_to(ROOT))
     for p in sources
     if re.search(r"^\s*import\s+Translation\b", p.read_text(encoding="utf-8"), re.M)
 }
-stray = sorted(importers - ALLOWED_TRANSLATION_IMPORTERS)
-check("only the allowed files import Translation", not stray, f"stray: {stray}")
+stray = sorted(i for i in importers
+               if not i.startswith(TRANSLATION_ALLOWED_PREFIXES))
+check("only StudySystem imports Translation", not stray, f"stray: {stray}")
+check("StudySystem actually is the boundary, and still exists",
+      any(i.startswith("LinguaKeyApp/Sources/StudySystem/") for i in importers))
+
+# And the boundary only works in one direction: the engine and the study surface
+# must not reach back through it, or the "testable without the framework" claim
+# quietly stops being true.
+back_references = sorted(
+    str(p.relative_to(ROOT))
+    for p in swift_files("LinguaKeyApp/Sources/StudyKit", "LinguaKeyApp/Sources/StudyUI",
+                         "LinguaKeyCore/Sources")
+    if re.search(r"^\s*import\s+StudySystem\b", p.read_text(encoding="utf-8"), re.M)
+)
+check("StudyKit, StudyUI and LinguaKeyCore do not import StudySystem",
+      not back_references, f"{back_references}")
 
 
 # --------------------------------------------------------- mastery is never stored
@@ -98,14 +112,31 @@ else:
 
 # --------------------------------------------------------- one App Group identifier
 
+# The app and the extension are two processes sharing one container. A single
+# character of drift between the two entitlements gives each of them its own
+# empty container and looks exactly like "the extension is not saving anything".
+# The pattern deliberately allows build-setting variables, because the identifier
+# is derived from BUNDLE_PREFIX rather than written out.
 group_ids: dict[str, list[str]] = {}
-for path in list(ROOT.rglob("*.entitlements")) + list(ROOT.rglob("Info.plist")):
-    if ".build" in path.parts:
-        continue
-    for match in re.findall(r"group\.[A-Za-z0-9._-]+", path.read_text(encoding="utf-8")):
+plists = [p for p in list(ROOT.rglob("*.entitlements")) + list(ROOT.rglob("Info.plist"))
+          if ".build" not in p.parts and "DerivedData" not in p.parts]
+for path in plists:
+    for match in re.findall(r"group\.[^<\s]+", path.read_text(encoding="utf-8")):
         group_ids.setdefault(match, []).append(str(path.relative_to(ROOT)))
-check("at most one App Group identifier across the repo",
-      len(group_ids) <= 1, f"found {sorted(group_ids)}")
+check("exactly one App Group identifier across the repo",
+      len(group_ids) == 1, f"found {sorted(group_ids)}")
+
+# It has to be in both entitlements files and in both Info.plists: the
+# entitlement grants the container, and Storage reads the identifier from
+# Info.plist rather than hardcoding it.
+if len(group_ids) == 1:
+    carriers = set(next(iter(group_ids.values())))
+    for required in ("LinguaKeyApp/LinguaKey/LinguaKey.entitlements",
+                     "LinguaKeyApp/LinguaKeyShare/LinguaKeyShare.entitlements",
+                     "LinguaKeyApp/LinguaKey/Info.plist",
+                     "LinguaKeyApp/LinguaKeyShare/Info.plist"):
+        check(f"the App Group is declared in {required.split('/')[-1]} of "
+              f"{required.split('/')[1]}", required in carriers, f"{sorted(carriers)}")
 
 
 # --------------------------------------------------------- staged data matches the build

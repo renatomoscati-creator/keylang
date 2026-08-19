@@ -1,0 +1,18 @@
+// Copy to Local.xcconfig, which is gitignored, and fill in your own values.
+//
+// A free personal team's identifiers are per developer. They must not be in the
+// repository: another machine with a different team cannot use them, and the
+// resulting signing failure looks like a project problem rather than a config
+// one.
+//
+//   cp LinguaKeyApp/Local.xcconfig.example LinguaKeyApp/Local.xcconfig
+//
+// DEVELOPMENT_TEAM is the ten-character Team ID from Xcode's
+// Settings > Accounts > Manage Certificates, or from the target's Signing tab
+// once you have picked your personal team once.
+
+DEVELOPMENT_TEAM = ABCDE12345
+
+// Everything is derived from this, including the App Group. Use a reverse-DNS
+// prefix you control, or anything unique if you never intend to submit.
+BUNDLE_PREFIX = com.example.you

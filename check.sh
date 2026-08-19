@@ -30,6 +30,7 @@ run "memory model"      bash -c 'cd tools/engine && python3 test_fsrs.py'
 run "focus selection"   bash -c 'cd tools/engine && python3 test_focus.py'
 run "arm assignment"    bash -c 'cd tools/engine && python3 test_arms.py'
 run "swift invariants"  python3 tools/check_invariants.py
+run "xcode project"     python3 tools/check_project.py
 
 printf '\n=== golden vectors are current ===\n'
 golden_check() {

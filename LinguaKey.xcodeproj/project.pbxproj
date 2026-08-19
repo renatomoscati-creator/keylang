@@ -1,0 +1,470 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		288AEB15FCD20B2ADBB66F13 /* StudyKit in Frameworks */ = {isa = PBXBuildFile; productRef = DBBFD6F72D940D8AD1483CF7 /* StudyKit */; };
+		752C415754BFEB284D5DB2C5 /* StudyUI in Frameworks */ = {isa = PBXBuildFile; productRef = B6E10DD5FFEAD3EF49CDED58 /* StudyUI */; };
+		5A0C0AA57BD843201DDD0084 /* StudySystem in Frameworks */ = {isa = PBXBuildFile; productRef = 500E6A171417B3EC8D5988E8 /* StudySystem */; };
+		1AFF4556333BAC142297D295 /* LinguaKeyCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8907264547618317D758D541 /* LinguaKeyCore */; };
+		AED381B744B8C6BDB69174C3 /* StudyKit in Frameworks */ = {isa = PBXBuildFile; productRef = C97A506491A6C1F746DDE1F2 /* StudyKit */; };
+		206098AAAB0A00F3E9EB0A2F /* StudyUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4021DA735F2BD400F823C7F0 /* StudyUI */; };
+		B4426D24C87FDFAB3F06CEE1 /* StudySystem in Frameworks */ = {isa = PBXBuildFile; productRef = DDB6063BE331C0C9EBDCD79F /* StudySystem */; };
+		C9F9CB338E8934E31CB9984D /* LinguaKeyCore in Frameworks */ = {isa = PBXBuildFile; productRef = 77DF6790C29BE24DDE5729FF /* LinguaKeyCore */; };
+		87C1C87B2994E4B4E559A69B /* LinguaKeyData in Resources */ = {isa = PBXBuildFile; fileRef = 79477FD91D2D590E693A1D9B /* LinguaKeyData */; };
+		302AC63208798904683F80A6 /* LinguaKeyShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F3A00DAF65E0197B572F4DDF /* LinguaKeyShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0C08B04B0AEA1239A6E31BA2 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				302AC63208798904683F80A6 /* LinguaKeyShare.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		735A07CBA26084CE7F2A307C /* LinguaKey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinguaKey.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3A00DAF65E0197B572F4DDF /* LinguaKeyShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LinguaKeyShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B969F20E0B7DCA1860DFD52 /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Local.xcconfig; path = LinguaKeyApp/Local.xcconfig; sourceTree = SOURCE_ROOT; };
+		F8684395B30DB628F4F771F9 /* Local.xcconfig.example */ = {isa = PBXFileReference; lastKnownFileType = text; name = Local.xcconfig.example; path = LinguaKeyApp/Local.xcconfig.example; sourceTree = SOURCE_ROOT; };
+		79477FD91D2D590E693A1D9B /* LinguaKeyData */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LinguaKeyData; path = build/LinguaKeyData; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		31FFC6A17631E0501151DFB9 /* Exceptions for "LinguaKey" folder in "LinguaKey" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+				LinguaKey.entitlements,
+			);
+			target = FC6AA77A42C91923A788613A /* LinguaKey */;
+		};
+		0EE9193713361A1D41B98400 /* Exceptions for "LinguaKeyShare" folder in "LinguaKeyShare" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+				LinguaKeyShare.entitlements,
+			);
+			target = 2D5EDB7F2D216E4F4E55C9A5 /* LinguaKeyShare */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		39E7B8C68FA395B1EA3BE748 /* LinguaKey */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				31FFC6A17631E0501151DFB9 /* Exceptions for "LinguaKey" folder in "LinguaKey" target */,
+			);
+			path = LinguaKeyApp/LinguaKey;
+			sourceTree = "<group>";
+		};
+		E733226FCBA8AB40B7B4433F /* LinguaKeyShare */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0EE9193713361A1D41B98400 /* Exceptions for "LinguaKeyShare" folder in "LinguaKeyShare" target */,
+			);
+			path = LinguaKeyApp/LinguaKeyShare;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4E4D56D85E31F35042794992 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				288AEB15FCD20B2ADBB66F13 /* StudyKit in Frameworks */,
+				752C415754BFEB284D5DB2C5 /* StudyUI in Frameworks */,
+				5A0C0AA57BD843201DDD0084 /* StudySystem in Frameworks */,
+				1AFF4556333BAC142297D295 /* LinguaKeyCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD059F555707CCA52674C0C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AED381B744B8C6BDB69174C3 /* StudyKit in Frameworks */,
+				206098AAAB0A00F3E9EB0A2F /* StudyUI in Frameworks */,
+				B4426D24C87FDFAB3F06CEE1 /* StudySystem in Frameworks */,
+				C9F9CB338E8934E31CB9984D /* LinguaKeyCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BB1B98CC3F6D49EF011DEFD4 = {
+			isa = PBXGroup;
+			children = (
+				39E7B8C68FA395B1EA3BE748 /* LinguaKey */,
+				E733226FCBA8AB40B7B4433F /* LinguaKeyShare */,
+				5267463A79880D46D3540F10 /* Configuration */,
+				79477FD91D2D590E693A1D9B /* LinguaKeyData */,
+				A3BAB1EA3B29DC40411D59B4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A3BAB1EA3B29DC40411D59B4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				735A07CBA26084CE7F2A307C /* LinguaKey.app */,
+				F3A00DAF65E0197B572F4DDF /* LinguaKeyShare.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5267463A79880D46D3540F10 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				3B969F20E0B7DCA1860DFD52 /* Local.xcconfig */,
+				F8684395B30DB628F4F771F9 /* Local.xcconfig.example */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FC6AA77A42C91923A788613A /* LinguaKey */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0964868A7658B0B0F068E6F /* Build configuration list for PBXNativeTarget "LinguaKey" */;
+			buildPhases = (
+				734BAC17544F5C5B20254FE8 /* Sources */,
+				4E4D56D85E31F35042794992 /* Frameworks */,
+				C95F8DB2C1CCA411FD6D4D65 /* Resources */,
+				0C08B04B0AEA1239A6E31BA2 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6C3C5739FE4128FD34AB79BE /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				39E7B8C68FA395B1EA3BE748 /* LinguaKey */,
+			);
+			name = LinguaKey;
+			packageProductDependencies = (
+				DBBFD6F72D940D8AD1483CF7 /* StudyKit */,
+				B6E10DD5FFEAD3EF49CDED58 /* StudyUI */,
+				500E6A171417B3EC8D5988E8 /* StudySystem */,
+				8907264547618317D758D541 /* LinguaKeyCore */,
+			);
+			productName = LinguaKey;
+			productReference = 735A07CBA26084CE7F2A307C /* LinguaKey.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2D5EDB7F2D216E4F4E55C9A5 /* LinguaKeyShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABA6CAAFACC47298ADBAB459 /* Build configuration list for PBXNativeTarget "LinguaKeyShare" */;
+			buildPhases = (
+				3256DED4979B5892838B4AD1 /* Sources */,
+				CD059F555707CCA52674C0C8 /* Frameworks */,
+				EDC414DBF8009C60D7CC9D1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E733226FCBA8AB40B7B4433F /* LinguaKeyShare */,
+			);
+			name = LinguaKeyShare;
+			packageProductDependencies = (
+				C97A506491A6C1F746DDE1F2 /* StudyKit */,
+				4021DA735F2BD400F823C7F0 /* StudyUI */,
+				DDB6063BE331C0C9EBDCD79F /* StudySystem */,
+				77DF6790C29BE24DDE5729FF /* LinguaKeyCore */,
+			);
+			productName = LinguaKeyShare;
+			productReference = F3A00DAF65E0197B572F4DDF /* LinguaKeyShare.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		59CAED762FB717C2DFB05716 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					FC6AA77A42C91923A788613A = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					2D5EDB7F2D216E4F4E55C9A5 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+				};
+			};
+			buildConfigurationList = 9D0EAFACBAFF2F329D9AEB7A /* Build configuration list for PBXProject "LinguaKey" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BB1B98CC3F6D49EF011DEFD4;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B30A05B10163EF684D39C56E /* XCLocalSwiftPackageReference "LinguaKeyApp" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A3BAB1EA3B29DC40411D59B4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FC6AA77A42C91923A788613A /* LinguaKey */,
+				2D5EDB7F2D216E4F4E55C9A5 /* LinguaKeyShare */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C95F8DB2C1CCA411FD6D4D65 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87C1C87B2994E4B4E559A69B /* LinguaKeyData in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDC414DBF8009C60D7CC9D1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		734BAC17544F5C5B20254FE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3256DED4979B5892838B4AD1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6C3C5739FE4128FD34AB79BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D5EDB7F2D216E4F4E55C9A5 /* LinguaKeyShare */;
+			targetProxy = 46AF232F6A150EE74DF5EEAC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXContainerItemProxy section */
+		46AF232F6A150EE74DF5EEAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59CAED762FB717C2DFB05716 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D5EDB7F2D216E4F4E55C9A5;
+			remoteInfo = LinguaKeyShare;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin XCBuildConfiguration section */
+		7E36FB63AE6DB93A2AE163DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B969F20E0B7DCA1860DFD52 /* Local.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		B0E7292CB57067F74D56A75C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B969F20E0B7DCA1860DFD52 /* Local.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 0.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		879EFBF3B29415224E4FD21E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				CODE_SIGN_ENTITLEMENTS = LinguaKeyApp/LinguaKey/LinguaKey.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = LinguaKeyApp/LinguaKey/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_PREFIX).linguakey";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		C86E94D3689F9FF5FF713FA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				CODE_SIGN_ENTITLEMENTS = LinguaKeyApp/LinguaKey/LinguaKey.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = LinguaKeyApp/LinguaKey/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_PREFIX).linguakey";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+		05D61F241B101F60BD401CD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = LinguaKeyApp/LinguaKeyShare/LinguaKeyShare.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = LinguaKeyApp/LinguaKeyShare/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_PREFIX).linguakey.share";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		78D27E008575FFD846E049BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = LinguaKeyApp/LinguaKeyShare/LinguaKeyShare.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = LinguaKeyApp/LinguaKeyShare/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_PREFIX).linguakey.share";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9D0EAFACBAFF2F329D9AEB7A /* Build configuration list for PBXProject "LinguaKey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E36FB63AE6DB93A2AE163DF /* Debug */,
+				B0E7292CB57067F74D56A75C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0964868A7658B0B0F068E6F /* Build configuration list for PBXNativeTarget "LinguaKey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				879EFBF3B29415224E4FD21E /* Debug */,
+				C86E94D3689F9FF5FF713FA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABA6CAAFACC47298ADBAB459 /* Build configuration list for PBXNativeTarget "LinguaKeyShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05D61F241B101F60BD401CD1 /* Debug */,
+				78D27E008575FFD846E049BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		B30A05B10163EF684D39C56E /* XCLocalSwiftPackageReference "LinguaKeyApp" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = LinguaKeyApp;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DBBFD6F72D940D8AD1483CF7 /* StudyKit */ = {isa = XCSwiftPackageProductDependency; productName = StudyKit; };
+		B6E10DD5FFEAD3EF49CDED58 /* StudyUI */ = {isa = XCSwiftPackageProductDependency; productName = StudyUI; };
+		500E6A171417B3EC8D5988E8 /* StudySystem */ = {isa = XCSwiftPackageProductDependency; productName = StudySystem; };
+		8907264547618317D758D541 /* LinguaKeyCore */ = {isa = XCSwiftPackageProductDependency; productName = LinguaKeyCore; };
+		C97A506491A6C1F746DDE1F2 /* StudyKit */ = {isa = XCSwiftPackageProductDependency; productName = StudyKit; };
+		4021DA735F2BD400F823C7F0 /* StudyUI */ = {isa = XCSwiftPackageProductDependency; productName = StudyUI; };
+		DDB6063BE331C0C9EBDCD79F /* StudySystem */ = {isa = XCSwiftPackageProductDependency; productName = StudySystem; };
+		77DF6790C29BE24DDE5729FF /* LinguaKeyCore */ = {isa = XCSwiftPackageProductDependency; productName = LinguaKeyCore; };
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 59CAED762FB717C2DFB05716 /* Project object */;
+}

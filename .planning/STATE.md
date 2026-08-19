@@ -1,16 +1,18 @@
 # State: keylang
 
-current phase: 01 - ground truth (probes pending hardware), with phase 03 engine work pulled
-forward because it does not depend on the probe outcome
-status: phase 01 CONTEXT + PLAN written, gray areas resolved, probe harness written under
-`Probe/`. The remaining phase 01 work is measurement on hardware this session cannot reach: a
-MacBook Pro M4 Pro running Xcode 27 beta and the physical iPhone 13 on iOS 27 beta. Everything
-that does not depend on P1's answer has been built ahead of it: the linguistic data build
-(`tools/build-data/`, 3.67 MB morphology + 0.20 MB lexicon, both checked), the reference engine
-(`tools/engine/`, 34 memory-model properties and 26 focus behaviours passing), and the Swift port
-(`LinguaKeyCore/`, pinned to the reference by 336 golden scalars and 8 scenario replays). One
-command at the repository root, `./check.sh`, runs all of it. All ten research passes are
-complete and every prerequisite question has landed.
+current phase: 02 - study surface (built, pending on-device verification), with phase 01's
+probes still waiting on hardware and phase 05's engine work pulled forward because neither
+depends on the probe outcome
+status: everything that can be built without the hardware has been built. The linguistic data
+build (`tools/build-data/`), the reference engine (`tools/engine/`), the Swift engine
+(`LinguaKeyCore/`), the study surface and its store (`LinguaKeyApp/`), the app and share
+extension targets, and a hand-written `LinguaKey.xcodeproj`. `./setup.sh` prepares a machine and
+`./check.sh` verifies all of it in one command, with no Xcode and no device: 159 assertions
+across 8 suites.
+What remains needs hardware this session cannot reach, a MacBook Pro M4 Pro on Xcode 27 beta and
+the physical iPhone 13 on iOS 27 beta: phase 01's probes (P1 is still the gate for the KEYBOARD,
+not for the share extension), and phase 02's tasks T5 through T8, which are the first build, the
+first run and the answers to gray areas G1 and G2. All ten research passes are complete.
 
 ## Log
 - 2026-08-18 project initialized from a seven-agent research pass rather than a brainstorm
@@ -141,3 +143,25 @@ complete and every prerequisite question has landed.
   3.9 MB of identical binary under version control to serve a code path the product never takes;
   `tools/stage-data.sh` assembles the single runtime data root instead, and the tests reach the
   committed copies via `#filePath`.
+- 2026-08-19 phase 02 BUILT, minus the on-device verification. The study surface exists as an app
+  and a share extension: `LinguaKeyApp/Sources/{StudyKit,StudyUI,StudySystem}` plus the two
+  targets and a hand-written `LinguaKey.xcodeproj`. Decisions taken without the user, all in
+  CONTEXT: the store is an append-only JSON-lines log with item state as a fold over it (phase 08
+  has to fit the exposure efficacy weight from every event ever written, which a mutable item row
+  cannot answer); arms are assigned by FNV-1a over an install salt plus the item key, never by
+  `Hasher`, which is seeded per process and would reassign arms on every launch while looking like
+  working code; and the whole surface is useful with no language pack, because the lexicon carries
+  a gloss for 99.8% of lemmas offline and an app that shows an error screen the first time it is
+  opened is an app that never gets opened again. G3 resolved during the build: arm B reveals on
+  tap, never on a timer, because a timer measures reading speed as much as retrieval.
+  The Xcode project is the risk. It was hand-written because there is no Xcode here, so
+  `tools/check_project.py` makes 71 structural claims about it: every reference resolves, both
+  targets have both configurations, every `INFOPLIST_FILE` and entitlements path exists on disk,
+  the appex is embedded into PlugIns and the app depends on it, `Info.plist` and the entitlements
+  are excluded from synchronized-folder target membership, every linked package product is one the
+  package actually exports, the extension bundles no second copy of the tables, and no Team ID is
+  committed. What none of that can catch is whether Xcode likes the result, which needs Xcode.
+  It uses `objectVersion 77` with `PBXFileSystemSynchronizedRootGroup`, so adding a Swift file
+  never touches the project file and never produces a merge conflict in it.
+  `./check.sh` now runs 8 suites and 159 assertions in total. `./setup.sh` builds the tables,
+  stages them and creates `Local.xcconfig` in one command.
