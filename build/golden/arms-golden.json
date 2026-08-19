@@ -1,0 +1,228 @@
+{
+ "_comment": "Arm assignment must be byte-identical across processes, launches and implementations. Hashes are decimal strings because JSON numbers cannot carry a UInt64 exactly. Regenerate with tools/engine/golden_arms.py.",
+ "arms": [
+  "A",
+  "B",
+  "C"
+ ],
+ "fnv1a64": {
+  "": "14695981039346656037",
+  "a": "12638187200555641996",
+  "foobar": "9625390261332436968",
+  "LEM:vaso|N|0": "12710059736219916672",
+  "salt-1\u0001LEM:vaso|N|0": "8009483662835215619",
+  "\u00f1": "775181019486090553"
+ },
+ "assignments": [
+  {
+   "salt": "",
+   "key": "LEM:vaso|N|0",
+   "arm": "A"
+  },
+  {
+   "salt": "",
+   "key": "LEM:pan|N|0",
+   "arm": "B"
+  },
+  {
+   "salt": "",
+   "key": "LEM:salir|V|0",
+   "arm": "A"
+  },
+  {
+   "salt": "",
+   "key": "LEM:pronto|ADV|0",
+   "arm": "C"
+  },
+  {
+   "salt": "",
+   "key": "LEM:llegar|V|0",
+   "arm": "B"
+  },
+  {
+   "salt": "",
+   "key": "CELL:V|IND,FUT,1,SG",
+   "arm": "B"
+  },
+  {
+   "salt": "",
+   "key": "CELL:V|SBJV,PRS,2,SG",
+   "arm": "A"
+  },
+  {
+   "salt": "",
+   "key": "CELL:N|MASC,SG",
+   "arm": "A"
+  },
+  {
+   "salt": "",
+   "key": "",
+   "arm": "C"
+  },
+  {
+   "salt": "",
+   "key": "unicode:\u00f1|N|0",
+   "arm": "A"
+  },
+  {
+   "salt": "salt-1",
+   "key": "LEM:vaso|N|0",
+   "arm": "C"
+  },
+  {
+   "salt": "salt-1",
+   "key": "LEM:pan|N|0",
+   "arm": "B"
+  },
+  {
+   "salt": "salt-1",
+   "key": "LEM:salir|V|0",
+   "arm": "A"
+  },
+  {
+   "salt": "salt-1",
+   "key": "LEM:pronto|ADV|0",
+   "arm": "A"
+  },
+  {
+   "salt": "salt-1",
+   "key": "LEM:llegar|V|0",
+   "arm": "C"
+  },
+  {
+   "salt": "salt-1",
+   "key": "CELL:V|IND,FUT,1,SG",
+   "arm": "B"
+  },
+  {
+   "salt": "salt-1",
+   "key": "CELL:V|SBJV,PRS,2,SG",
+   "arm": "A"
+  },
+  {
+   "salt": "salt-1",
+   "key": "CELL:N|MASC,SG",
+   "arm": "A"
+  },
+  {
+   "salt": "salt-1",
+   "key": "",
+   "arm": "C"
+  },
+  {
+   "salt": "salt-1",
+   "key": "unicode:\u00f1|N|0",
+   "arm": "B"
+  },
+  {
+   "salt": "8B0F2C11-3A4D-4E5F-9A7B-1C2D3E4F5A6B",
+   "key": "LEM:vaso|N|0",
+   "arm": "A"
+  },
+  {
+   "salt": "8B0F2C11-3A4D-4E5F-9A7B-1C2D3E4F5A6B",
+   "key": "LEM:pan|N|0",
+   "arm": "C"
+  },
+  {
+   "salt": "8B0F2C11-3A4D-4E5F-9A7B-1C2D3E4F5A6B",
+   "key": "LEM:salir|V|0",
+   "arm": "A"
+  },
+  {
+   "salt": "8B0F2C11-3A4D-4E5F-9A7B-1C2D3E4F5A6B",
+   "key": "LEM:pronto|ADV|0",
+   "arm": "C"
+  },
+  {
+   "salt": "8B0F2C11-3A4D-4E5F-9A7B-1C2D3E4F5A6B",
+   "key": "LEM:llegar|V|0",
+   "arm": "A"
+  },
+  {
+   "salt": "8B0F2C11-3A4D-4E5F-9A7B-1C2D3E4F5A6B",
+   "key": "CELL:V|IND,FUT,1,SG",
+   "arm": "B"
+  },
+  {
+   "salt": "8B0F2C11-3A4D-4E5F-9A7B-1C2D3E4F5A6B",
+   "key": "CELL:V|SBJV,PRS,2,SG",
+   "arm": "B"
+  },
+  {
+   "salt": "8B0F2C11-3A4D-4E5F-9A7B-1C2D3E4F5A6B",
+   "key": "CELL:N|MASC,SG",
+   "arm": "C"
+  },
+  {
+   "salt": "8B0F2C11-3A4D-4E5F-9A7B-1C2D3E4F5A6B",
+   "key": "",
+   "arm": "B"
+  },
+  {
+   "salt": "8B0F2C11-3A4D-4E5F-9A7B-1C2D3E4F5A6B",
+   "key": "unicode:\u00f1|N|0",
+   "arm": "A"
+  },
+  {
+   "salt": "\u00f1-acentuado",
+   "key": "LEM:vaso|N|0",
+   "arm": "A"
+  },
+  {
+   "salt": "\u00f1-acentuado",
+   "key": "LEM:pan|N|0",
+   "arm": "B"
+  },
+  {
+   "salt": "\u00f1-acentuado",
+   "key": "LEM:salir|V|0",
+   "arm": "B"
+  },
+  {
+   "salt": "\u00f1-acentuado",
+   "key": "LEM:pronto|ADV|0",
+   "arm": "C"
+  },
+  {
+   "salt": "\u00f1-acentuado",
+   "key": "LEM:llegar|V|0",
+   "arm": "B"
+  },
+  {
+   "salt": "\u00f1-acentuado",
+   "key": "CELL:V|IND,FUT,1,SG",
+   "arm": "C"
+  },
+  {
+   "salt": "\u00f1-acentuado",
+   "key": "CELL:V|SBJV,PRS,2,SG",
+   "arm": "B"
+  },
+  {
+   "salt": "\u00f1-acentuado",
+   "key": "CELL:N|MASC,SG",
+   "arm": "A"
+  },
+  {
+   "salt": "\u00f1-acentuado",
+   "key": "",
+   "arm": "C"
+  },
+  {
+   "salt": "\u00f1-acentuado",
+   "key": "unicode:\u00f1|N|0",
+   "arm": "C"
+  }
+ ],
+ "distribution": {
+  "salt": "distribution-salt",
+  "key_format": "LEM:word{i}|N|0",
+  "count": 10000,
+  "counts": {
+   "A": 3305,
+   "B": 3293,
+   "C": 3402
+  }
+ }
+}

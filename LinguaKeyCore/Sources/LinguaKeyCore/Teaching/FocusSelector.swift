@@ -21,8 +21,29 @@ public struct Candidate: Sendable, Equatable {
     public let gloss: String
     public let feats: String
     public let trap: Trap?
+    /// Carried through so the caller can seed a cold-start item without a second
+    /// table lookup, and so the event that creates the item can record the priors
+    /// it was created from.
+    public let zipf: Double
+    public let cognateMax: Double
 
     public enum Kind: String, Sendable { case vocabulary, grammar }
+
+    public init(surface: String, lemma: String, key: String, kind: Kind, score: Double,
+                reason: String, gloss: String, feats: String, trap: Trap?,
+                zipf: Double, cognateMax: Double) {
+        self.surface = surface
+        self.lemma = lemma
+        self.key = key
+        self.kind = kind
+        self.score = score
+        self.reason = reason
+        self.gloss = gloss
+        self.feats = feats
+        self.trap = trap
+        self.zipf = zipf
+        self.cognateMax = cognateMax
+    }
 }
 
 public struct FocusSelector: Sendable {
@@ -188,7 +209,8 @@ public struct FocusSelector: Sendable {
             vocabulary.append(Candidate(
                 surface: surface, lemma: reading.lemma, key: key, kind: .vocabulary,
                 score: value, reason: reason, gloss: reading.gloss,
-                feats: reading.feats, trap: interference[reading.lemma]))
+                feats: reading.feats, trap: interference[reading.lemma],
+                zipf: reading.zipf, cognateMax: reading.cognateMax))
 
             let tags = Set(reading.feats.split(separator: ";").dropFirst().map(String.init))
             if let cell = reading.cellKey, !suppressed(cell),
@@ -202,7 +224,8 @@ public struct FocusSelector: Sendable {
                 grammar.append(Candidate(
                     surface: surface, lemma: reading.lemma, key: cell, kind: .grammar,
                     score: value, reason: reason, gloss: reading.gloss,
-                    feats: reading.feats, trap: nil))
+                    feats: reading.feats, trap: nil,
+                    zipf: reading.zipf, cognateMax: reading.cognateMax))
             }
         }
 

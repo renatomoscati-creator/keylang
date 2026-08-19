@@ -28,18 +28,26 @@ run "morphology table"  python3 tools/build-data/check_morphology.py
 run "lexicon tables"    python3 tools/build-data/check_lexicon.py
 run "memory model"      bash -c 'cd tools/engine && python3 test_fsrs.py'
 run "focus selection"   bash -c 'cd tools/engine && python3 test_focus.py'
+run "arm assignment"    bash -c 'cd tools/engine && python3 test_arms.py'
+run "swift invariants"  python3 tools/check_invariants.py
 
 printf '\n=== golden vectors are current ===\n'
-before=$(sha256sum build/golden/fsrs-golden.json 2>/dev/null | cut -d' ' -f1)
-(cd tools/engine && python3 golden.py >/dev/null)
-after=$(sha256sum build/golden/fsrs-golden.json | cut -d' ' -f1)
-if [[ "$before" != "$after" ]]; then
-  echo "!! golden vectors were stale and have been regenerated."
-  echo "   The memory model changed. Commit the new file and note it in STATE.md."
-  fail=1
-else
-  echo "  ok  unchanged"
-fi
+golden_check() {
+  local file="$1" script="$2" what="$3"
+  local before after
+  before=$(sha256sum "build/golden/$file" 2>/dev/null | cut -d' ' -f1)
+  (cd tools/engine && python3 "$script" >/dev/null)
+  after=$(sha256sum "build/golden/$file" | cut -d' ' -f1)
+  if [[ "$before" != "$after" ]]; then
+    echo "!! $file was stale and has been regenerated."
+    echo "   $what changed. Commit the new file and note it in STATE.md."
+    fail=1
+  else
+    echo "  ok  $file unchanged"
+  fi
+}
+golden_check fsrs-golden.json golden.py      "The memory model"
+golden_check arms-golden.json golden_arms.py "Arm assignment"
 
 printf '\n'
 if [[ $fail -ne 0 ]]; then
