@@ -14,15 +14,14 @@ public struct PackDownloadButton: View {
     private let title: String
     private let source: Locale.Language
     private let target: Locale.Language
-    private let onFinish: () async -> Void
+    private let onFinish: @Sendable () async -> Void
 
     @State private var configuration: TranslationSession.Configuration?
-    @State private var working = false
 
     public init(_ title: String = "Download the Spanish pack",
                 source: Locale.Language = SystemTranslator.source,
                 target: Locale.Language = SystemTranslator.target,
-                onFinish: @escaping () async -> Void) {
+                onFinish: @escaping @Sendable () async -> Void) {
         self.title = title
         self.source = source
         self.target = target
@@ -30,24 +29,18 @@ public struct PackDownloadButton: View {
     }
 
     public var body: some View {
-        Button {
+        Button(title) {
             // Reassigning the configuration is what re-triggers the task, which
-            // is what surfaces the system's download sheet.
-            working = true
+            // is what surfaces the system's download sheet. iOS owns the progress
+            // UI from here, which is why there is no spinner of our own: two
+            // progress indicators for one download is worse than none.
             configuration = TranslationSession.Configuration(source: source, target: target)
-        } label: {
-            HStack {
-                Text(title)
-                if working { Spacer(); ProgressView().controlSize(.small) }
-            }
         }
-        .disabled(working)
         .translationTask(configuration) { session in
             // Preparing is what downloads. The translation itself happens
-            // headlessly, elsewhere.
+            // headlessly, elsewhere, which is what lets it run in the extension.
             try? await session.prepareTranslation()
             await onFinish()
-            working = false
         }
     }
 }

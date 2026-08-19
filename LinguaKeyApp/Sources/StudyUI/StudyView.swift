@@ -90,6 +90,7 @@ public struct StudyView: View {
         }
     }
 
+    @MainActor
     private func start() async {
         if !presented {
             presented = true
@@ -108,6 +109,7 @@ public struct StudyView: View {
         }
     }
 
+    @MainActor
     private func record(_ focus: StudySession.Focus, _ outcome: FocusCardView.Outcome) {
         let now = Date().timeIntervalSince1970
         switch outcome {

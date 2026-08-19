@@ -34,7 +34,10 @@ public final class AppModel {
     public private(set) var selector: FocusSelector?
     public private(set) var assignment = ArmAssignment(salt: "unset")
 
-    public init() {}
+    /// Nonisolated so it can be built in a `@State` property initialiser, which
+    /// is a synchronous nonisolated context. Every stored default here is
+    /// Sendable, which is what makes that legal rather than merely convenient.
+    nonisolated public init() {}
 
     public func start() async {
         guard let storage = Storage.shared() else {

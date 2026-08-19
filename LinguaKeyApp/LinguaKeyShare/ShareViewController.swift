@@ -118,7 +118,13 @@ final class ShareViewController: UIViewController {
         case .study(let session, let store, let translator):
             root = AnyView(StudyView(session: session, translator: translator, store: store,
                                      onEvents: { [weak self] events in
-                                         try? self?.log?.appendAll(events)
+                                         guard let log = self?.log else { return }
+                                         // A failed append is worth seeing. The
+                                         // extension has no UI left to show it
+                                         // in by this point, so the console is
+                                         // where it goes.
+                                         do { try log.appendAll(events) }
+                                         catch { print("event log append failed: \(error)") }
                                      },
                                      onDone: { [weak self] in self?.finish() }))
         case .problem(let message):
