@@ -51,23 +51,32 @@ you are unsure.
 ./check.sh
 ```
 
-One command, no Xcode, no device:
+One command, 187 assertions, no Xcode and no device:
 
-- the morphology table, 18 assertions over 130,196 surfaces
-- the lexicon tables
-- 34 properties of the memory model
-- 26 behaviours of focus selection, against the real tables
-- 12 properties of arm assignment
-- 16 invariants the Swift compiler here cannot check, since there is no Swift
-  compiler here: the Translation boundary, mastery never being stored, the arm
-  hash never being `Hasher`, one App Group identifier
-- 71 structural checks on the hand-written Xcode project
-- both golden vector files, regenerated and compared
+| Suite | What it proves |
+| --- | --- |
+| morphology table | 18 assertions over 130,196 surfaces |
+| lexicon tables | 21 assertions over 4,655 lemmas |
+| memory model | 34 properties, including that 100 exposures alone never suppress an item |
+| focus selection | 26 behaviours against the real tables |
+| arm assignment | 12 properties, including the published FNV-1a vectors |
+| swift invariants | 22 claims no compiler here can make |
+| xcode project | 71 structural checks on the hand-written project file |
+| golden vectors | 4 files, regenerated and compared byte for byte |
 
-The Swift itself is verified by golden vectors rather than by having been run.
-The model was designed and property-tested in Python first, and the Swift asserts
-336 scalars, 8 scenario replays and 40 arm assignments against it. See
-`LinguaKeyCore/README.md` for why.
+The Swift itself is verified by golden vectors rather than by having been run,
+because no Swift toolchain is reachable from the machine it was written on. The
+model was designed and property-tested in Python first, and the Swift asserts
+336 scalars, 8 scenario replays, 40 arm assignments, and a 45-event log folding
+to 8 items against that reference. See `LinguaKeyCore/README.md` for why.
+
+The invariants are the checks that catch things which look like working code:
+the `Translation` boundary holding in both directions, `mastery` never becoming a
+stored property, the arm hash never becoming `Hasher` (which is seeded per
+process and would silently reassign arms on every launch), one App Group
+identifier across four files, and every `Channel` and `Grade` value agreeing
+between the Swift and the reference. Each was proven by introducing the violation
+it catches.
 
 ## The shape of the thing
 

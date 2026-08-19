@@ -165,3 +165,18 @@ first run and the answers to gray areas G1 and G2. All ten research passes are c
   never touches the project file and never produces a merge conflict in it.
   `./check.sh` now runs 8 suites and 159 assertions in total. `./setup.sh` builds the tables,
   stages them and creates `Local.xcconfig` in one command.
+- 2026-08-19 the store and the fold PINNED to the reference, which closes the last piece of
+  load-bearing Swift whose only test could not run here. `tools/engine/store.py` mirrors the
+  Event shape, the JSON rules and the fold; `golden_store.py` writes a real 45-event log across
+  8 items plus the state it must produce. The Swift test copies that log into a temporary App
+  Group, reads it back through the real `EventLog` and folds it through the real `ItemStore`, so
+  one pass exercises the field names, the channel raw values, the absent-versus-null rule for
+  optionals, the torn-line tolerance, the complete-byte-count arithmetic and every trace scalar.
+  The items were chosen so BOTH answers of the suppression rule are pinned rather than only the
+  negative one. Two cross-language checks added because golden vectors only cover the channels
+  they happen to use: every `Channel` raw value and every `Grade` number must match between the
+  Swift and the reference, both proven by introducing the drift they catch.
+  `./check.sh` is now 187 assertions across 8 suites. Nothing further can be validated without
+  hardware: this session has no macOS, no Xcode, no device, and no reachable Swift toolchain
+  (swift.org returns 403 through the proxy and there is no container runtime). The next move is
+  `.planning/phases/02-study-surface/HANDOFF.md`, run on the M4 Pro.
